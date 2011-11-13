@@ -1,0 +1,13 @@
+This is a command-line tool to query the online encyclopedia of integer 
+sequences, at oeis.org.  It's written in python so that, in principle, it can
+be called programatically from within sage code.  Please read the user agreement of the online encyclopedia of integer sequences before using this code!
+
+Functionality is currently very, very limited.  Syntax is
+
+./oeis.py 1 2 5 14 42
+
+or
+
+./oeis.py -n4 1 2 5 14 42
+
+to return only the first 4 responses.  If you want it to do other things, feel free to add them, but do send me a patch.

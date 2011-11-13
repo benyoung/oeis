@@ -1,0 +1,1156 @@
+# Greetings from The On-Line Encyclopedia of Integer Sequences! http://oeis.org/
+
+Search: seq:1,2,5,14,42
+Showing 1-56 of 56
+
+%I A000108 M1459 N0577
+%S A000108 1,1,2,5,14,42,132,429,1430,4862,16796,58786,208012,742900,2674440,
+%T A000108 9694845,35357670,129644790,477638700,1767263190,6564120420,
+%U A000108 24466267020,91482563640,343059613650,1289904147324,4861946401452,18367353072152,69533550916004,263747951750360,1002242216651368,3814986502092304
+%N A000108 Catalan numbers: C(n) = binomial(2n,n)/(n+1) = (2n)!/(n!(n+1)!). Also called Segner numbers.
+%C A000108 The solution to Schroeder's first problem. A very large number of combinatorial interpretations are known - see references, esp. Stanley, Enumerative Combinatorics, Volume 2.
+%C A000108 Number of ways to insert n pairs of parentheses in a word of n+1 letters. E.g. for n=3 there are 5 ways: ((ab)(cd)), (((ab)c)d), ((a(bc))d), (a((bc)d)), (a(b(cd))).
+%C A000108 Consider all the binomial(2n,n) paths on squared paper that (i) start at (0, 0), (ii) end at (2n, 0) and (iii) at each step, either make a (+1,+1) step or a (+1,-1) step. Then the number of such paths which never go never below the x-axis (Dyck paths) is C(n) [Chung-Feller]
+%C A000108 Number of noncrossing partitions of the n-set. For example, of the 15 set partitions of the 4-set, only [{13},{24}] is crossing, so there are a(4)=14 noncrossing partitions of 4 elements. [Joerg Arndt, Jul 11 2011]
+%C A000108 a(n-1) is the number of ways of expressing an n-cycle in the symmetric group S_n as a product of n-1 transpositions (u_1,v_1)*(u_2,v_2)*...*(u_{n-1},v_{n-1}) where uk<=uj and vk<=vj for k<j; see example.  If the condition is dropped one obtains A000272. [Joerg Arndt and Greg Stevenson, Jul 11 2011]
+%C A000108 a(n) is the number of ordered rooted trees with n nodes, not including the root. See the Conway-Guy reference where these rooted ordered trees are called plane bushes. See also the Bergeron et al. reference, Example 4, p. 167. W. Lang Aug 07 2007.
+%C A000108 Shifts one place left when convolved with itself.
+%C A000108 For n >= 1 a(n) is also the number of rooted bicolored unicellular maps of genus 0 on n edges. - Ahmed Fares (ahmedfares(AT)my-deja.com), Aug 15 2001
+%C A000108 Ways of joining 2n points on a circle to form n nonintersecting chords. (If no such restriction imposed, then ways of forming n chords is given by (2n-1)!!=(2n)!/n!2^n=A001147(n).)
+%C A000108 Arises in Schubert calculus - see Sottile reference.
+%C A000108 Inverse Euler transform of sequence is A022553.
+%C A000108 With interpolated zeros, the inverse binomial transform of the Motzkin numbers A001006. - Paul Barry, Jul 18 2003
+%C A000108 The Hankel transforms of this sequence or of this sequence with the first term omitted give A000012 = 1, 1, 1, 1, 1, 1, ...; example : Det([1, 1, 2, 5; 1, 2, 5, 14; 2, 5, 14, 42; 5, 14, 42, 132]) = 1 and Det([1, 2, 5, 14; 2, 5, 14, 42; 5, 14, 42, 132; 14, 42, 132, 429]) = 1 . - DELEHAM Philippe, Mar 04 2004
+%C A000108 c(n) = C(2*n-2,n-1)/n = (1/n!) * [ n^(n-1) + { C(n-2,1) +C(n-2,2) }*n^(n-2) + { 2*C(n-3,1) +7*C(n-3,2) +8*C(n-3,3) +3*C(n-3,4) }*n^(n-3) + { 6*C(n-4,1) +38*C(n-4,2) +93*C(n-4,3) +111*C(n-4,4) +65*C(n-4,5) +15*C(n-4,6) }*n^(n-4) + ..... ]. - Andre F. Labossiere (boronali(AT)laposte.net), Nov 10 2004
+%C A000108 Sum_{n=0..infinity} 1/a(n) = 2 + 4*Pi/3^(5/2) = F(1,2;1/2;1/4) = 2.806133050770763... (see L'Universe de Pi link) - Gerald McGarvey and Benoit Cloitre, Feb 13 2005
+%C A000108 a(n) equals sum of squares of terms in row n of triangle A053121, which is formed from successive self-convolutions of the Catalan sequence. - Paul D. Hanna, Apr 23 2005
+%C A000108 Comment from Donald D. Cross (cosinekitty(AT)hotmail.com), Feb 04 2005: Also coefficients of the Mandelbrot polynomial M iterated an infinite number of times. Examples: M(0) = 0 = 0*c^0 = [0], M(1) = c = c^1 + 0*c^0 = [1 0], M(2) = c^2 + c = c^2 + c^1 + 0*c^0 = [1 1 0], M(3) = (c^2 + c)^2 + c = [0 1 1 2 1], ... ... M(5) = [0 1 1 2 5 14 26 44 69 94 114 116 94 60 28 8 1], ...
+%C A000108 The multiplicity with which a prime p divides C_n can be determined by first expressing n+1 in base p. For p=2, the multiplicity is the number of 1 digits minus 1. For p an odd prime, count all digits greater than (p+1)/2; also count digits equal to (p+1)/2 unless final; and count digits equal to (p-1)/2 if not final and the next digit is counted. For example, n=62, n+1 = 223_5, so C_62 is not divisible by 5. n=63, n+1 = 224_5, so 5^3 | C_63. - Frank Adams-Watters, Feb 08 2006
+%C A000108 Koshy and Salmassi give an elementary proof that the only prime Catalan numbers are a(2) = 2 and a(3) = 5. Is the only semiprime Catalan number a(4) = 14? - Jonathan Vos Post, Mar 06 2006
+%C A000108 Comment from Franklin T. Adams-Watters, Apr 14 2006: The answer is yes. Using the formula C_n = C(2n,n)/(n+1), it is immediately clear that C_n can have no prime factor greater than 2n. For n >= 7, C_n > (2n)^2, so it cannot be a semiprime. Given that the Catalan numbers grow exponentially, the above consideration implies that the number of prime divisors of C_n, counted with multiplicity, must grow without limit. The number of distinct prime divisors must also grow without limit, but this is more difficult. Any prime between n+1 and 2n (exclusive) must divide C_n. That the number of such primes grows without limit follows from the prime number theorem.
+%C A000108 The number of ways to place n indistinguishable balls in n numbered boxes B1,...,Bn such that at most a total of k balls are placed in boxes B1,...,Bk for k=1,...,n. For example, a(3)=5 since there are 5 ways to distribute 3 balls among 3 boxes such that (i) box 1 gets at most 1 ball and (ii)box 1 and box 2 together get at most 2 balls:(O)(O)(O), (O)()(OO), ()(OO)(O), ()(O)(OO), ()()(OOO). - Dennis P. Walsh (dwalsh(AT)mtsu.edu), Dec 04 2006
+%C A000108 a(n) is also the order of the semigroup of order-decreasing and order-preserving full transformations (of an n-element chain) - now known as the Catalan monoid [From A. Umar (aumarh(AT)squ.edu.om), Aug 25 2008]
+%C A000108 a(n) is the number of trivial representations in the direct product of 2n spinor (the smallest) representations of the group SU(2) (A(1)). [From Rutger Boels (boels(AT)nbi.dk), Aug 26 2008]
+%C A000108 The invert transform appears to converge to the catalan numbers when applied infinitely many times to any starting sequence. [From Mats O. Granvik, Gary W. Adamson and Roger L. Bagula, Sep 09 2008, Sep 12 2008]
+%C A000108 lim(a(n)/a(n-1): n->infinity) = 4 [From Francesco Antoni (francesco_antoni(AT)yahoo.com), Nov 24 2008]
+%C A000108 Starting with offset 1 = row sums of triangle A154559 [From Gary W. Adamson, Jan 11 2009]
+%C A000108 C(n) is the degree of the Grassmanian G(1,n+1): the set of lines in (n+1)-dimensional projective space, or the set of planes through the origin in (n+2)-dimensional affine space. The Grassmanian is considered a subset of N-dimensional projective space, N = binomial(n+2,2) - 1. If we choose 2n general (n-1)-planes in projective (n+1)-space, then there are C(n) lines that meet all of them. [Benji Fisher (benji(AT)FisherFam.org), Mar 05 2009]
+%C A000108 Contribution from Gary W. Adamson, May 01 2009: (Start)
+%C A000108 Starting with offset 1 = A068875: (1, 2, 4, 10, 18, 84,...) convolved with
+%C A000108 Fine numbers, A000957: (1, 0, 1, 2, 6, 18,...). a(6) = 132 =
+%C A000108 (1, 2, 4, 10, 28, 84) dot (18, 6, 2, 1, 0, 1) = (18 + 12 + 8 + 10 + 0 + 84) = 132. (End)
+%C A000108 Convolved with A032443: (1, 3, 11, 42, 163,...) = powers of 4, A000302: (1, 4, 16,...). [From Gary W. Adamson, May 15 2009]
+%C A000108 Sum{k=1...Infinity,c(k-1)/2^(2k-1)}=1. The k-th term in the summation is the probability that a random walk on the integers (begining at the origin) will arrive at positive one (for the first time) in exactly (2k-1) steps. [From Geoffrey Critzer, Sep 12 2009]
+%C A000108 C(p+q)-C(p)*C(q)=sum(C(i)*C(j)*C(p+q-i-j-1), i=0..(p-1), j=0..(q-1) ) [From Groux roland, Nov 13 2009]
+%C A000108 Leonhard Euler used the formula C(n) = product_{i=3..n}(4*i-10)/(i-1) in his 'Betrachtungen, auf wie vielerley Arten ein gegebenes polygonum durch Diagonallinien in triangula zerschnitten werden k"onne' and computes by recursion C(n+2) for n = 1..8. (Berlin, 4th September 1751, in a letter to Goldbach). [From Peter Luschny, Mar 13 2010]
+%C A000108 Let A179277 = A(x). Then C(x) is satisfied by A(x)/A(x^2). [From Gary W. Adamson, Jul 07 2010]
+%C A000108 a(n)= A000680(n)/A006472(n) [From M.dols (markdols99(AT)yahoo.com), Jul 14 2010]
+%C A000108 a(n) is also the number of quivers in the mutation class of type B_n or of type C_n. [From Christian Stump (christian.stump(AT)gmail.com), Nov 02 2010]
+%C A000108 Consider a set of A000217(n) balls of n colors in which, for each integer k = 1 to n, exactly one color appears in the set a total of k times. (Each ball has exactly one color and is indistinguishable from other balls of the same color.) a(n+1) equals the number of ways to choose 0 or more balls of each color while satisfying the following conditions: 1. No two colors are chosen the same positive number of times. 2. For any two colors (c, d) that are chosen at least once, color c is chosen more times than color d iff color c appears more times in the original set than color d.
+%C A000108 If the second requirement is lifted, the number of acceptable ways equals A000110(n+1). See related comments for A016098, A085082. [From Matthew Vandermast, Nov 22 2010]
+%C A000108 Deutsch and Sagan prove the Catalan number C_n is odd if and only if n = 2^a - 1 for some nonnegative integer a. Lin proves for every odd Catalan number C_n, we have C_n == 1 (mod 4). [Jonathan Vos Post (jvospost3(AT)gmail.com), Dec 09 2010]
+%C A000108 a(n) is the number of functions f:{1,2,...,n}->{1,2,...,n} such that f(1)=1 and for all n>=1 f(n+1)<=f(n)+1. For a nice bijection between this set of functions and the set of length 2n Dyck words see page 333 of the fxtbook (see link below).
+%C A000108 Complement of A092459; A010058(a(n)) = 1. [Reinhard Zumkeller, Mar 29 2011]
+%D A000108 The large number of references and links demonstrates the ubiquity of the Catalan numbers.
+%D A000108 James Abello, The weak Bruhat order of S consistent sets, and Catalan numbers. SIAM J. Discrete Math. 4 (1991), 1-16.
+%D A000108 M. Aigner, Enumeration via ballot numbers, Discrete Math., 308 (2008), 2544-2563.
+%D A000108 R. Alter, Some remarks and results on Catalan numbers, pp. 109-132 in Proceedings of the Louisiana Conference on Combinatorics, Graph Theory and Computer Science. Vol. 2, edited R. C. Mullin et al., 1971.
+%D A000108 R. Alter and K. K. Kubota, Prime and prime power divisibility of Catalan numbers, J. Combinatorial Theory, Ser. A, 15 (1973), 243-256.
+%D A000108 Jean-Christophe Aval, Multivariate Fuss-Catalan numbers, arXiv:0711.0906v1, Discrete Math., 308 (2008), 4660-4669.
+%D A000108 R. Bacher and C. Krattenthaler, Chromatic statistics for triangulations and FussCatalan complexes, Electronic Journal of Combinatorics, 18 (2011), #P152.
+%D A000108 D. F. Bailey, Counting Arrangements of 1's and -1's, Mathematics Magazine 69(2) 128-131 1996.
+%D A000108 I. Bajunaid et al., Function series, Catalan numbers and random walks on trees, Amer. Math. Monthly 112 (2005), 765-785.
+%D A000108 E. Barcucci, A. Del Lungo, E. Pergola and R. Pinzani, Permutations avoiding an increasing number of length-increasing forbidden subsequences, Discrete Mathematics and Theoretical Computer Science 4, 2000, 31-44.
+%D A000108 E. Barcucci, A. Frosini and S. Rinaldi, On directed-convex polyominoes in a rectangle, Discr. Math., 298 (2005). 62-78.
+%D A000108 Paul Barry, A Catalan Transform and Related Transformations on Integer Sequences, Journal of Integer Sequences, Vol. 8 (2005), Article 05.4.5.
+%D A000108 Paul Barry, On Integer-Sequence-Based Constructions of Generalized Pascal Triangles, Journal of Integer Sequences, Vol. 9 (2006), Article 06.2.4.
+%D A000108 P. Barry, Invariant number triangles, eigentriangles and Somos-4 sequences, Arxiv preprint arXiv:1107.5490, 2011.
+%D A000108 F. Bergeron, G. Labelle and P. Leroux, Combinatorial Species and Tree-like Structures, EMA vol.67, Cambridge, 1998, p. 163, 167, 168, 252, 256, 291.
+%D A000108 Matthew Bennett, Vyjayanthi Chari, R.J. Dolbin and Nathan Manning, Square Partitions and Catalan Numbers, arXiv: 0912.4983v1.
+%D A000108 F. R. Bernhart, Catalan, Motzkin and Riordan numbers, Discr. Math., 204 (1999) 73-112.
+%D A000108 A. Bernini, F. Disanto, R. Pinzani and S. Rinaldi, Permutations defining convex permutominoes, J. Int. Seq. 10 (2007) # 07.9.7
+%D A000108 M. Bona and B. E. Sagan, On Divisibility of Narayana Numbers by Primes, Journal of Integer Sequences, Vol. 8 (2005), Article 05.2.4.
+%D A000108 Bousquet, Michel; and Lamathe, Cedric; On symmetric structures of order two. Discrete Math. Theor. Comput. Sci. 10 (2008), 153-176.
+%D A000108 W. G. Brown, Historical note on a recurrent combinatorial problem, Amer. Math. Monthly, 72 (1965), 973-977.
+%D A000108 D. Callan, A combinatorial interpretation of a Catalan numbers identity, Math. Mag., 72 (1999), 295-298.
+%D A000108 D. Callan, The maximum associativeness of division, Problem 11091, Amer. Math. Monthly, 113 (#5, 2006), 462-463.
+%D A000108 David Callan, A Combinatorial Interpretation for a Super-Catalan Recurrence, Journal of Integer Sequences, Vol. 8 (2005), Article 05.1.8.
+%D A000108 David Callan, A Combinatorial Interpretation of the Eigensequence for Composition, Journal of Integer Sequences, Vol. 9 (2006), Article 06.1.4.
+%D A000108 Naiomi T. Cameron and Asamoah Nkwanta, On Some (Pseudo) Involutions in the Riordan Group, Journal of Integer Sequences, Vol. 8 (2005), Article 05.3.7.
+%D A000108 Chung, Kai Lai; Feller, W., On fluctuations in coin-tossing. Proc. Nat. Acad. Sci. U. S. A. 35, (1949). 605-608.
+%D A000108 J. Cigler, Some nice Hankel determinants. Arxiv preprint arXiv:1109.1449, 2011.
+%D A000108 L. Comtet, Advanced Combinatorics, Reidel, 1974, p. 53.
+%D A000108 J. H. Conway and R. K. Guy, The Book of Numbers, New York: Springer-Verlag, 1995, ch. 4, pp 96-106.
+%D A000108 S. J. Cyvin and I. Gutman, Kekule structures in benzenoid hydrocarbons, Lecture Notes in Chemistry, No. 46, Springer, New York, 1988 (see pp. 183, 196, etc.).
+%D A000108 E. Deutsch, Dyck path enumeration, Discrete Math., 204, 167-202, 1999.
+%D A000108 E. Deutsch and L. Shapiro, A survey of the Fine numbers, Discrete Math., 241 (2001), 241-265.
+%D A000108 E. Deutsch and L. Shapiro, Seventeen Catalan identities, Bulletin of the Institute of Combinatorics and its Applications, 31, 31-38, 2001.
+%D A000108 S. Dulucq and J.-G. Penaud, Cordes, arbres et permutations. Discrete Math. 117 (1993), no. 1-3, 89-105.
+%D A000108 A. Errara, Analysis situs: une probleme d'enumeration, Memoires Acad. Bruxelles, Series 2, Vol. 11, No. 6, 26pp.
+%D A000108 K. Fan, Structure of a Hecke algebra quotient, J. Amer. Math. Soc., 10 (1997), 139-167.
+%D A000108 Philippe Flajolet, Eric Fusy, Xavier Gourdon, Daniel Panario and Nicolas Pouyanne, A Hybrid of Darboux's Method and Singularity Analysis in Combinatorial Asymptotics, arXiv:math.CO/0606370
+%D A000108 Flajolet, Philippe; Gourdon, Xavier; and Dumas, Philippe; Mellin transforms and asymptotics: harmonic sums. Special volume on mathematical analysis of algorithms. Theoret. Comput. Sci. 144 (1995), no. 1-2, 3-58.
+%D A000108 Dominique Foata and Guo-Niu Han, Dimers and new q-tangent numbers, Preprint, 2008.
+%D A000108 Dominique Foata and Guo-Niu Han, The dimer polynomial triangle, Preprint, 2008.
+%D A000108 D. Foata and D. Zeilberger, A classic proof of a recurrence for a very classical sequence, J. Comb Thy A 80 380-384 1997.
+%D A000108 H. G. Forder, Some problems in combinatorics, Math. Gazette, vol. 45, 1961, 199-201.
+%D A000108 J. R. Gaggins, Constructing the Centroid of a Polygon, Math. Gaz., 61 (1988), 211-212.
+%D A000108 M. Gardner, Time Travel and Other Mathematical Bewilderments, Chap. 20 pp. 253-266 W. H. Freeman NY 1988.
+%D A000108 James Gleick, Faster, Vintage Books, NY, 2000 (see pp. 259-261).
+%D A000108 H. W. Gould, Research bibliography of two special number sequences, Mathematica Monongaliae, Vol. 12, 1971.
+%D A000108 Alain Goupil and Gilles Schaeffer, Factoring N-Cycles and Counting Maps of Given Genus . Europ. J. Combinatorics (1998) 19 819-834.
+%D A000108 D. Gouyou-Beauchamps, Chemins sous-diagonaux et tableau de Young, pp. 112-125 of "Combinatoire Enumerative (Montreal 1985)", Lect. Notes Math. 1234, 1986.
+%D A000108 M. Griffiths, The Backbone of Pascal's Triangle, United Kingdom Mathematics Trust (2008), 53-63 and 85-93. [From Martin Griffiths (griffm(AT)essex.ac.uk), Mar 28 2009]
+%D A000108 J. L. Gross and J. Yellen, eds., Handbook of Graph Theory, CRC Press, 2004; p. 530.
+%D A000108 H. G. Grundman and E. A. Teeple, Sequences of Generalized Happy Numbers with Small Bases, Journal of Integer Sequences, Vol. 10 (2007), Article 07.1.8.
+%D A000108 N. S. S. Gu, N. Y. Li and T. Mansour, 2-Binary trees: bijections and related issues, Discr. Math., 308 (2008), 1209-1221.
+%D A000108 F. Harary and E. M. Palmer, Graphical Enumeration, Academic Press, NY, 1973, p. 67, (3.3.23).
+%D A000108 J. Harris, Algebraic Geometry: A First Course (GTM 133), Springer-Verlag, 1992, pages 245-247. [From Benji Fisher (benji(AT)FisherFam.org), Mar 05 2009]
+%D A000108 S. Heubach, N. Y. Li and T. Mansour, Staircase tilings and k-Catalan structures, Discrete Math., 308 (2008), 5954-5964.
+%D A000108 Higgins, Peter M. Combinatorial results for semigroups of order-preserving mappings. Math. Proc. Camb. Phil. Soc. (1993), 113: 281-296. [From A. Umar (aumarh(AT)squ.edu.om), Aug 25 2008]
+%D A000108 B. D. Hughes, Random Walks and Random Environments, Oxford 1995, vol. 1, p. 513, Eq. (7.282).
+%D A000108 R. H. Jeurissen, Raney and Catalan, Discrete Math., 308 (2008), 6298-6307.
+%D A000108 M. Klazar, On numbers of Davenport-Schinzel sequences, Discr. Math., 185 (1998), 77-87.
+%D A000108 D. E. Knuth, The Art of Computer Programming, vol. 4A, Combinatorial Algorithms, Section 7.2.1.6 (p. 450).
+%D A000108 Thomas Koshy and Mohammad Salmassi, "Parity and Primality of Catalan Numbers", College Mathematics Journal, Vol. 37, No. 1 (Jan 2006), pp. 52-53.
+%D A000108 M. Kosters, A theory of hexaflexagons, Nieuw Archief Wisk., 17 (1999), 349-362.
+%D A000108 Nate Kube and Frank Ruskey, Sequences That Satisfy a(n-a(n))=0, Journal of Integer Sequences, Vol. 8 (2005), Article 05.5.5.
+%D A000108 Laradji, A. and Umar, A. On certain finite semigroups of order-decreasing transformations I, Semigroup Forum 69 (2004), 184-200 [From A. Umar (aumarh(AT)squ.edu.om), Aug 25 2008]
+%D A000108 P. J. Larcombe, On pre-Catalan Catalan numbers: Kotelnikow (1766), Mathematics Today, 35 (1999), p. 25.
+%D A000108 P. J. Larcombe, On the history of the Catalan numbers: a first record in China, Mathematics Today, 35 (1999), p. 89.
+%D A000108 P. J. Larcombe, The 18th century Chinese discovery of the Catalan numbers, Math. Spectrum, 32 (1999/2000), 5-7.
+%D A000108 P. J. Larcombe and P. D. C. Wilson, On the trail of the Catalan sequence, Mathematics Today, 34 (1998), 114-117.
+%D A000108 P. J. Larcombe and P. D. C. Wilson, On the generating function of the Catalan sequence: a historical perspective, Congress. Numer., 149 (2001), 97-108.
+%D A000108 G. S. Lueker, Some techniques for solving recurrences, Computing Surveys, 12 (1980), 419-436.
+%D A000108 J. J. Luo, Antu Ming, the first inventor of Catalan numbers in the world [in Chinese], Neimenggu Daxue Xuebao, 19 (1998), 239-245.
+%D A000108 Toufik Mansour, Statistics on Dyck Paths, Journal of Integer Sequences, Vol. 9 (2006), Article 06.1.5.
+%D A000108 Toufik Mansour and Simone Severini, Enumeration of (k,2)-noncrossing partitions, Discrete Math., 308 (2008), 4570-4577.
+%D A000108 D. Merlini, R. Sprugnoli and M. C. Verri, The tennis ball problem, J. Combin. Theory, A 99 (2002), 307-344.
+%D A000108 A. Milicevic and N. Trinajstic, "Combinatorial Enumeration in Chemistry", Chem. Modell., Vol. 4, (2006), pp. 405-469.
+%D A000108 Marni Mishna and Lily Yen, Set partitions with no k-nesting, Arxiv preprint arXiv:1106.5036, 2011
+%D A000108 Liviu I. Nicolaescu, Counting Morse functions on the 2-sphere, arXiv:math/0512496.
+%D A000108 C. O. Oakley and R. J. Wisner, Flexagons, Amer. Math. Monthly, 64 (1957), 143-154.
+%D A000108 A. Panholzer and H. Prodinger, Bijections for ternary trees and non-crossing trees, Discrete Math., 250 (2002), 181-195 (see Eq. 4).
+%D A000108 Robert Parviainen, Lattice Path Enumeration of Permutations with k Occurrences of the Pattern 2-13, Journal of Integer Sequences, Vol. 9 (2006), Article 06.3.2.
+%D A000108 S. G. Penrice, Stacks, bracketings and CG-arrangements, Math. Mag., 72 (1999), 321-324.
+%D A000108 Karol A. Penson and Karol Zyczkowski, Product of Ginibre matrices: Fuss-Catalan and Raney distributions, Phys. Rev E. vol. 83, 061118 (2011), arXiv:1103.3453, 2011.
+%D A000108 C. A. Pickover, Wonders of Numbers, Chap. 71, Oxford Univ. Press NY 2000.
+%D A000108 Clifford A. Pickover, A Passion for Mathematics, Wiley, 2005; see p. 71.
+%D A000108 R. Read, "Counting Binary Trees" in 'The Mathematical Gardner', D. A. Klarner Ed. pp. 331-334, Wadsworth CA 1989.
+%D A000108 J.-L. Remy, Un procede iteratif de denombrement d'arbres binaires et son application a leur generation aleatoire, RAIRO Inform. Theor. 19 (1985), 179-195.
+%D A000108 J. Riordan, Combinatorial Identities, Wiley, 1968, p. 101.
+%D A000108 J. Riordan, The distribution of crossings of chords joining pairs of 2n points on a circle, Math. Comp., 29 (1975), 215-222.
+%D A000108 T. Santiago Costa Oliveira, "Catalan traffic" and integrals on the Grassmannian of lines, Discr. Math., 308 (2007), 148-152.
+%D A000108 A. Sapounakis, I. Tasoulas and P. Tsikouras, On the Dominance Partial Ordering of Dyck Paths, Journal of Integer Sequences, Vol. 9 (2006), Article 06.2.5.
+%D A000108 A. Sapounakis, I. Tasoulas and P. Tsikouras, Counting strings in Dyck paths, Discrete Math., 307 (2007), 2909-2924.
+%D A000108 E. Schroeder, Vier combinatorische Probleme, Z. f. Math. Phys., 15 (1870), 361-376.
+%D A000108 J. A. von Segner, Enumeratio modorum, quibus figurae planae rectilineae per diagonales dividuntur in triangula, Novi Comm. Acad. Scient. Imper. Petropolitanae, 7 (1758/1759), 203-209.
+%D A000108 L. W. Shapiro, A short proof of an identity of Touchard's concerning Catalan numbers, J. Combin. Theory, A 20 (1976), 375-376.
+%D A000108 L. W. Shapiro and C. J. Wang, Generating identities via 2 X 2 matrices, Congressus Numerantium, 205 (2010), 33-46.
+%D A000108 L. W. Shapiro, W.-J. Woan and S. Getu, The Catalan numbers via the World Series, Math. Mag., 66 (1993), 20-22.
+%D A000108 N. J. A. Sloane, A Handbook of Integer Sequences, Academic Press, 1973 (includes this sequence).
+%D A000108 N. J. A. Sloane and Simon Plouffe, The Encyclopedia of Integer Sequences, Academic Press, 1995 (includes this sequence).
+%D A000108 Solomon, A. Catalan monoids, monoids of local endomorphisms and their presentations. Semigroup Forum 53 (1996), 351--368 [From A. Umar (aumarh(AT)squ.edu.om), Aug 25 2008]
+%D A000108 Michael Z. Spivey and Laura L. Steil, The k-Binomial Transforms and the Hankel Transform, Journal of Integer Sequences, Vol. 9 (2006), Article 06.1.1.
+%D A000108 R. P. Stanley, Enumerative Combinatorics, Wadsworth, Vol. 1, 1986, Vol. 2, 1999; see especially Chapter 6.
+%D A000108 R. P. Stanley, Recent Progress in Algebraic Combinatorics, Bull. Amer. Math. Soc., 40 (2003), 55-68.
+%D A000108 Zhi-Wei Sun and Roberto Tauraso, Congruences involving Catalan numbers, arXiv:0709.1665v5.
+%D A000108 A. Vieru, Agoh's conjecture: its proof, its generalizations, its analogues, Arxiv preprint arXiv:1107.2938, 2011.
+%D A000108 I. Vun and P. Belcher, Catalan numbers, Mathematical Spectrum, 30 (1997/1998), 3-5.
+%D A000108 D. Wells, Penguin Dictionary of Curious and Interesting Numbers, Entry 42 p 121, Penguin Books, 1987.
+%D A000108 Wen-jin Woan, A Recursive Relation for Weighted Motzkin Sequences, Journal of Integer Sequences, Vol. 8 (2005), Article 05.1.6.
+%D A000108 Wen-jin Woan, A Relation Between Restricted and Unrestricted Weighted Motzkin Paths, Journal of Integer Sequences, Vol. 9 (2006), Article 06.1.7.
+%D A000108 Wen-jin Woan, Animals and 2-Motzkin Paths, Journal of Integer Sequences, Vol. 8 (2005), Article 05.5.6.
+%D A000108 F. Yano and H. Yoshida, Some set partition statistics in non-crossing partitions and generating functions, Discr. Math., 307 (2007), 3147-3160.
+%H A000108 N. J. A. Sloane, <a href="/A000108/b000108.txt">The first 200 Catalan numbers</a>
+%H A000108 Joerg Arndt, <a href="http://www.jjj.de/fxt/#fxtbook">Fxtbook</a>, p.333 and p.337.
+%H A000108 M. Azaola and F. Santos, <a href="http://personales.unican.es/santosf/Articulos/">The number of triangulations of the cyclic polytope C(n,n-4)</a>, Discrete Comput. Geom., 27 (2002), 29-48. (C(n) = number of triangulations of cyclic polytope C(n,2).)
+%H A000108 John Baez, <a href="http://math.ucr.edu/home/baez/week202.html">This week's finds in mathematical physics, Week 202</a>
+%H A000108 E. Barcucci, A. Del Lungo, E. Pergola and R. Pinzani, <a href="http://www.dmtcs.org/volumes/abstracts/dm040103.abs.html">Permutations avoiding an increasing number of length-increasing forbidden subsequences</a>
+%H A000108 M. Bernstein and N. J. A. Sloane, <a href="http://arXiv.org/abs/math.CO/0205301">Some canonical sequences of integers</a>, Linear Alg. Applications, 226-228 (1995), 57-72; erratum 320 (2000), 210.
+%H A000108 D. Bill, <a href="http://www.durangobill.com/BinTrees.html">Durango Bill's Enumeration of Binary Trees</a>
+%H A000108 H. Bottomley, <a href="/A000108/a000108b.gif">Catalan Space Invaders</a>
+%H A000108 H. Bottomley, <a href="/A002694/a002694.gif">Illustration for A000108, A001147, A002694, A067310 and A067311</a>
+%H A000108 T. Bourgeron, <a href="http://www.dma.ens.fr/culturemath/maths/pdf/combi/montagnards.pdf">Montagnards et polygones</a>
+%H A000108 M. Bousquet-Melou and Gilles Schaeffer, <a href="http://www.labri.fr/Perso/~bousquet/Articles/Slitplane/PTRF/final.ps.gz">Walks on the slit plane</a>, Probability Theory and Related Fields, Vol. 124, no. 3 (2002), 305-344.
+%H A000108 K. S. Brown's Mathpages, <a href="http://www.mathpages.com/home/kmath322.htm">The Meanings of Catalan Numbers</a>
+%H A000108 B. Bukh, PlanetMath.org, <a href="http://planetmath.org/encyclopedia/CatalanNumbers.html">Catalan numbers</a>
+%H A000108 Alexander Burstein, Sergi Elizalde and Toufik Mansour, <a href="http://arXiv.org/abs/math.CO/0610234">Restricted Dumont permutations, Dyck paths and noncrossing partitions</a>, arXiv math.CO/0610234.
+%H A000108 N. T. Cameron, <a href="http://www.princeton.edu/~wmassey/NAM03/cameron.pdf">Random walks, trees and extensions of Riordan group techniques</a>
+%H A000108 P. J. Cameron, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL3/groups.html">Sequences realized by oligomorphic permutation groups</a>, J. Integ. Seqs. Vol. 3 (2000), #00.1.5.
+%H A000108 F. Cazals, <a href="http://algo.inria.fr/libraries/autocomb/NCC-html/NCC.html">Combinatorics of Non-Crossing Configurations</a>, Studies in Automatic Combinatorics, Volume II (1997).
+%H A000108 Julie Christophe, Jean-Paul Doignon and Samuel Fiorini, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL6/Doignon/doignon40.html">Counting Biorders</a>, J. Integer Seqs., Vol. 6, 2003.
+%H A000108 T. Davis, <a href="http://www.geometer.org/mathcircles/catalan.pdf">Catalan Numbers</a>
+%H A000108 E. Deutsch and B. E. Sagan, <a href="http://arxiv.org/pdf/math.CO/0407326">Congruences for Catalan and Motzkin numbers and related sequences</a>, J. Num. Theory 117 (2006), 191-215.
+%H A000108 R. M. Dickau, <a href="http://mathforum.org/advanced/robertd/catalan.html">Catalan numbers</a>
+%H A000108 R. M. Dickau, <a href="http://www-groups.dcs.st-andrews.ac.uk/~history/Miscellaneous/CatalanNumbers/catalan.html">Catalan Numbers (another copy)</a>
+%H A000108 P. Flajolet and R. Sedgewick, <a href="http://algo.inria.fr/flajolet/Publications/books.html">Analytic Combinatorics</a>, 2009; see page 18, 35
+%H A000108 D. Foata and D. Zeilberger, <a href="http://www.math.rutgers.edu/~zeilberg/mamarim/mamarimPDF/classic.pdf">A classic proof of a recurrence for a very classical sequence</a>
+%H A000108 I. Galkin, <a href="http://ulcar.uml.edu/~iag/CS/Catalan.html">Enumeration of the Binary Trees(Catalan Numbers)</a>
+%H A000108 Mohammad GANJTABESH, Armin MORABBI and Jean-Marc STEYAERT, <a href="http://www2.lifl.fr/SEQUOIA/Arena/Presentations/Ganjtabesh.pdf">Enumerating the number of RNA structures</a>
+%H A000108 H. W. Gould, <a href="http://www.ams.org/mathscinet-getitem?mr=2049119">Congr. Numer. 165 (2003) p 33-38</a>.
+%H A000108 B. Gourevitch, <a href="http://www.pi314.net/">L'univers de Pi</a> (click Mathematiciens, Gosper)
+%H A000108 R. K. Guy, Catwalks, Sandsteps and Pascal Pyramids, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL3/GUY/catwalks.html">J. Integer Seqs., Vol. 3 (2000), #00.1.6</a>
+%H A000108 Guo-Niu Han, <a href="http://www-irma.u-strasbg.fr/~guoniu/papers/p77puzzle.pdf">Enumeration of Standard Puzzles</a>
+%H A000108 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=48">Encyclopedia of Combinatorial Structures 48</a>
+%H A000108 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=52">Encyclopedia of Combinatorial Structures 52</a>
+%H A000108 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=71">Encyclopedia of Combinatorial Structures 71</a>
+%H A000108 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=76">Encyclopedia of Combinatorial Structures 76</a>
+%H A000108 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=284">Encyclopedia of Combinatorial Structures 284</a>
+%H A000108 I. Jensen, <a href="http://www.ms.unimelb.edu.au/~iwan/polygons/Polygons_ser.html">Series exapansions for self-avoiding polygons</a>
+%H A000108 S. Johnson, <a href="http://www.saintanns.k12.ny.us/depart/math/Seth/catafrm.html">The Catalan Numbers</a>
+%H A000108 A. Karttunen, <a href="/A014486/a014486.pdf">Illustration of initial terms up to size n=7</a>
+%H A000108 C. Kimberling, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL6/Kimberling/kimberling24.html">Matrix Transformations of Integer Sequences</a>, J. Integer Seqs., Vol. 6, 2003.
+%H A000108 W. Lang, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL3/LANG/lang.html">On generalizations of Stirling number triangles</a>, J. Integer Seqs., Vol. 3 (2000), #00.2.4.
+%H A000108 J. W. Layman, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL4/LAYMAN/hankel.html">The Hankel Transform and Some of its Properties</a>, J. Integer Sequences, 4 (2001), #01.1.5.
+%H A000108 Hsueh-Yung Lin, <a href="http://arxiv.org/abs/1012.1756">The odd Catalan numbers modulo 2^k</a>, Dec 8, 2010.
+%H A000108 Colin L. Mallows and Lou Shapiro, <a href="http://www.cs.uwaterloo.ca/journals/JIS/MALLOWS/mallows.html">Balls on the Lawn</a>, J. Integer Sequences, Vol. 2, 1999, #5.
+%H A000108 Toufik Mansour, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL5/Mansour/mansour6.html">Counting Peaks at Height k in a Dyck Path</a>, Journal of Integer Sequences, Vol. 5 (2002), Article 02.1.1
+%H A000108 R. J. Marsh and P. P. Martin, <a href="http://arXiv.org/abs/math.CO/0612572">Pascal arrays: counting Catalan sets</a>
+%H A000108 D. Merlini, R. Sprugnoli and M. C. Verri, <a href="http://www.dsi.unifi.it/~merlini/fun01.ps">Waiting patterns for a printer</a>, FUN with algorithm'01, Isola d'Elba, 2001.
+%H A000108 A. Panayotopoulos and P. Tsikouras, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL7/Panayotopoulos/panayo4.html">Meanders and Motzkin Words</a>, J. Integer Seqs., Vol. 7, 2004.
+%H A000108 A. Panholzer and H. Prodinger, <a href="http://www.wits.ac.za/helmut/abstract/abs_159.htm">Bijections for ternary trees and non-crossing trees</a>, Discrete Math., 250 (2002), 181-195 (see Eq. 4).
+%H A000108 P. Peart and W.-J. Woan, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL3/PEART/peart1.html">Generating Functions via Hankel and Stieltjes Matrices</a>, J. Integer Seqs., Vol. 3 (2000), #00.2.1.
+%H A000108 P. Peart and W.-J. Woan, <a href="http://www.cs.uwaterloo.ca/journals/JIS/VOL4/PEART/pwatjis2.html">Dyck Paths With No Peaks at Height k</a>, J. Integer Sequences, 4 (2001), #01.1.3.
+%H A000108 K. A. Penson and J.-M. Sixdeniers, <a href="http://www.cs.uwaterloo.ca/journals/JIS/index.html">Integral Representations of Catalan and Related Numbers</a>, J. Integer Sequences, 4 (2001), #01.2.5.
+%H A000108 Karol A. Penson and Karol Zyczkowski, <a href="http://dx.doi.org/10.1103/PhysRevE.83.061118">Product of Ginibre matrices : Fuss-Catalan and Raney distribution</a>, <a href="http://arxiv.org/abs/1103.3453/">arXiv version</a>
+%H A000108 A. Sapounakis and P. Tsikouras, <a href="http://www.cs.uwaterloo.ca/journals/JIS/">On k-colored Motzkin words</a>, Journal of Integer Sequences, Vol. 7 (2004), Article 04.2.5.
+%H A000108 N. J. A. Sloane, <a href="/A000108/a000108.html">Illustration of initial terms</a>
+%H A000108 Frank Sottile, <a href="http://www.math.umass.edu/~sottile/pages/ERAG/S4/1.html">The Schubert Calculus of Lines</a> (a section of Enumerative Real Algebraic Geometry)
+%H A000108 R. P. Stanley, <a href="http://www-math.mit.edu/~rstan/papers.html">Hipparchus, Plutarch, Schr"oder and Hough</a>, Am. Math. Monthly, Vol. 104, No. 4, p. 344, 1997.
+%H A000108 R. P. Stanley, <a href="http://www-math.mit.edu/~rstan/ec/catalan.pdf">Exercises on Catalan and Related Numbers</a>
+%H A000108 R. P. Stanley, <a href="http://www-math.mit.edu/~rstan/ec#catadd">Catalan Addendum</a>
+%H A000108 Zhi-Wei Sun, <a href="http://front.math.ucdavis.edu/math.CO/0509648">A combinatorial identity with application to Catalan numbers</a>
+%H A000108 V. S. Sunder, <a href="http://www.imsc.res.in/~sunder/catalan.pdf">Catalan numbers</a> [From Parthasarathy Nambi (PachaNambi(AT)yahoo.com), Dec 19 2009]
+%H A000108 D. Taylor, <a href="http://www.maths.usyd.edu.au/u/don/code/Catalan/Catalan.html">Catalan Structures(up to C(7))</a>
+%H A000108 G. Villemin's Almanac of Numbers, <a href="http://perso.wanadoo.fr/yoda.guillaume/Nb30a50/Catalan.htm">Nombres De Catalan</a>
+%H A000108 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/CatalanNumber.html">Catalan Number</a>
+%H A000108 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/BinaryBracketing.html">Binary Bracketing</a>
+%H A000108 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/BinaryTree.html">Binary Tree</a>
+%H A000108 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/NonassociativeProduct.html">Nonassociative Product</a>
+%H A000108 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/StaircaseWalk.html">Staircase Walk</a>
+%H A000108 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/DyckPath.html">Dyck Path</a>
+%H A000108 W.-J. Woan, <a href="http://www.cs.uwaterloo.ca/journals/JIS/index.html">Hankel Matrices and Lattice Paths</a>, J. Integer Sequences, 4 (2001), #01.1.2.
+%H A000108 <a href="/index/Cor#core">Index entries for "core" sequences</a>
+%H A000108 <a href="/index/Ro#rooted">Index entries for sequences related to rooted trees</a>
+%H A000108 <a href="/index/Par#parens">Index entries for sequences related to parenthesizing</a>
+%H A000108 <a href="/index/Ne#necklaces">Index entries for sequences related to necklaces</a>
+%F A000108 a(n) = binomial(2n, n)/(n+1) = (2n)!/(n!(n+1)!).
+%F A000108 a(n) = binomial(2n, n)-binomial(2n, n-1)
+%F A000108 a(n) = Sum_{k=0..n-1} a(k)a(n-1-k).
+%F A000108 G.f.: A(x) = (1 - sqrt(1 - 4*x)) / (2*x). G.f. A(x) satisfies A = 1 + x*A^2.
+%F A000108 a(n+1) = Sum_{i} binomial(n, 2*i)*2^(n-2*i)*a(i) - Touchard.
+%F A000108 2(2n-1)a(n-1) = (n+1)a(n).
+%F A000108 It is known that a(n) is odd if and only if n=2^k-1, k=1, 2, 3, ... - Emeric Deutsch, Aug 04 2002.
+%F A000108 Using the Stirling approximation in A000142 we get the asymptotic expansion a(n) ~ 4^n / (sqrt(Pi * n) * (n + 1)). - Dan Fux (dan.fux(AT)OpenGaia.com or danfux(AT)OpenGaia.com), Apr 13 2001
+%F A000108 Integral representation: a(n)=int(x^n*sqrt((4-x)/x), x=0..4)/(2*Pi). - Karol A. Penson (penson(AT)lptl.jussieu.fr), Apr 12 2001
+%F A000108 E.g.f.: exp(2x) (I_0(2x)-I_1(2x)), where I_n is Bessel function. - Karol A. Penson, Oct 07 2001
+%F A000108 Polygorial(n, 6)/Polygorial(n, 3) - Daniel Dockery (peritus(AT)gmail.com) Jun 24, 2003
+%F A000108 G.f. A(x) satisfies ((A(x)+A(-x))/2)^2 = A(4*x^2). - Michael Somos, Jun 27, 2003
+%F A000108 G.f. A(x) satisfies Sum_{k>=1} k(A(x)-1)^k = Sum_{n >= 1} 4^{n-1} x^n. - Shapiro, Woan, Getu
+%F A000108 a(n+m) = Sum_{k} A039599(n, k)*A039599(m, k). - DELEHAM Philippe, Dec 22 2003
+%F A000108 a(n+1) = (1/(n+1))*sum_{k=0..n} a(n-k)*binomial(2k+1, k+1) . - DELEHAM Philippe, Jan 24 2004
+%F A000108 a(n) = Sum_{k>=0} A008313(n, k)^2 . - DELEHAM Philippe, Feb 14 2004
+%F A000108 a(m+n+1) = Sum_{k>=0} A039598(m, k)*A039598(n, k) . - DELEHAM Philippe, Feb 15 2004
+%F A000108 a(n)=sum{k=0..n, (-1)^k*2^(n-k)*binomial(n, k)*binomial(k, floor(k/2))} - Paul Barry, Jan 27 2005
+%F A000108 a(n) = Sum_{k=0..[n/2]} ((n-2*k+1)*C(n, n-k)/(n-k+1))^2, which is equivalent to: a(n) = Sum_{k=0..n} A053121(n, k)^2, for n>=0. - Paul D. Hanna, Apr 23 2005
+%F A000108 a((m+n)/2) = Sum_{k>=0} A053121(m, k)*A053121(n, k) if m+n is even . - Philippe DELEHAM, May 26 2005
+%F A000108 E.g.f. Sum_{n>=0} a(n)*x^(2n)/(2n)! = BesselI(1, 2x)/x . - Michael Somos, Jun 22 2005
+%F A000108 Given g.f. A(x), then B(x)=x*A(x^3) satisfies 0=f(x, B(X)) where f(u, v)=u-v+(uv)^2 or B(x)=x+(x*B(x))^2 which implies B(-B(x))=-x and also (1+B^3)/B^2 = (1-x^3)/x^2 . - Michael Somos Jun 27 2005
+%F A000108 a(n) = a(n-1)*(4-6/(n+1)). a(n) = 2a(n-1)*(8a(n-2)+a(n-1))/(10a(n-2)-a(n-1)). - Frank Adams-Watters (FrankTAW(AT)Netscape.net), Feb 08 2006
+%F A000108 Sum_{k=1}^{infinity} a(k)/4^k = 1. - Frank Adams-Watters, Jun 28 2006
+%F A000108 a(n) = A047996(2*n+1,n) . - DELEHAM Philippe, Jul 25 2006
+%F A000108 Binomial transform of A005043 . - Philippe DELEHAM, Oct 20 2006
+%F A000108 a(n)=Sum_{k, 0<=k<=n}(-1)^k*A116395(n,k) . - Philippe DELEHAM, Nov 07 2006
+%F A000108 a(n)=[1/(s-n)]*sum_{k=0..n} (-1)^k (k+s-n)*binomial(s-n,k)*binomial(s+n-k,s) with s a nonnegative free integer [H. W. Gould].
+%F A000108 a(k) = Sum_{i=1..k} |A008276(i,k)| * (k-1)^(k-i) / k! - Andre F. Labossiere (boronali(AT)laposte.net), May 29 2007
+%F A000108 a(n)=Sum_{k, 0<=k<=n}A129818(n,k)*A007852(k+1). - Philippe DELEHAM, Jun 20 2007
+%F A000108 a(n)=Sum_{k, 0<=k<=n}A109466(n,k)*A127632(k). - Philippe DELEHAM, Jun 20 2007
+%F A000108 Row sums of triangle A124926 - Gary W. Adamson, Oct 22 2007
+%F A000108 For G.f. A(x), g(x)= x*A(x) is the compositional inverse of f(x) = x*(1-x) and this relates the Catalan numbers to the row sums of A125181. - Tom Copeland, Jan 13 2008
+%F A000108 lim(1+Sum(a(k)/A004171(k): 0<=k<=n): n->infinity) = 4/pi. [From Reinhard Zumkeller, Aug 26 2008]
+%F A000108 a(n)=Sum_{k, 0<=k<=n}A120730(n,k)^2 and a(k+1)=Sum_{n, n>=k}A120730(n,k). [From Philippe DELEHAM, Oct 18 2008]
+%F A000108 Comment from Gary W. Adamson, Oct 27 2008: Given an integer t >= 1 and initial values u = [a_0, a_1, ..., a_{t-1}], we may define an infinite sequence Phi(u) by setting a_n = a_{n-1} + a_0*a_{n-1} + a_1*a_{n-2} + ... + a_{n-2}*a_1 for n >= t. For example the present sequence is Phi([1]) (also Phi([1,1])).
+%F A000108 Formula from Thomas Wieder, Feb 25 2009:
+%F A000108 a(n) = sum_{l_1=0}^{n+1} sum_{l_2=0}^{n}...sum_{l_i=0}^{n-i}...sum_{l_n=0}^{1}
+%F A000108 delta(l_1,l_2,...,l_i,...,l_n)
+%F A000108 where delta(l_1,l_2,...,l_i,...,l_n) = 0 if any l_i < l_(i+1) and l_(i+1) <> 0
+%F A000108 for i=1..n-1 and delta(l_1,l_2,...,l_i,...,l_n) = 1 otherwise.
+%F A000108 C(n) = (4 - 6/n) * C(n-1) with C(1) = 1 [From M. Dols (markdols99(AT)yahoo.com), Feb 14 2010]
+%F A000108 G.f. A(x), B(x)=x*A(x) satisfies the differential equation B'(x)-2*B'(x)*B(x)-1=0 [From Vladimir Kruchinin, Jan 18 2011]
+%F A000108 G.f.: 1/(1-x/(1-x/(1-x/(...)))) (continued fraction). [Joerg Arndt, Mar 18 2011]
+%F A000108 Contribution from Tom Copeland, Sept 04 2011: (Start)
+%F A000108 With F(x) = (1-2*x-sqrt(1-4*x))/(2*x) an o.g.f. in x for the Catalan series, G(x)= x/(1+x)^2 is the compositional inverse of F (nulling the n=0 term).
+%F A000108 With H(x) = 1/(dG(x)/dx) = (1+x)^3 / (1-x), the n-th Catalan number is given by (1/n!)*((H(x)*d/dx)^n)x evaluated at x=0, i.e., F(x) = exp(x*H(u)*d/du)u, evaluated at u = 0. Also, dF(x)/dx = H(F(x)), and H(x) is the o.g.f. for A115291. (End)
+%F A000108 Contribution from Tom Copeland, Sept 30 2011: (Start)
+%F A000108 With F(x)={1-sqrt[1-4*x]}/2 an o.g.f. in x for the Catalan series,
+%F A000108   G(x)= x*(1-x) is the compositional inverse.
+%F A000108 With H(x)=1/(dG(x)/dx)= 1/(1-2x), the n-th Catalan number (offset 1) is given by (1/n!)*((H(x)*d/dx)^n)x evaluated at x=0, i.e.,
+%F A000108   F(x) = exp(x*H(u)*d/du)u, evaluated at u = 0. Also, dF(x)/dx = H(F(x)).(End)
+%e A000108 The following products of 3 transpositions lead to a 4-cycle in S_4:
+%e A000108 (1,2)*(1,3)*(1,4);
+%e A000108 (1,2)*(1,4)*(3,4);
+%e A000108 (1,3)*(1,4)*(2,3);
+%e A000108 (1,4)*(2,3)*(2,4);
+%e A000108 (1,4)*(2,4)*(3,4).  [Joerg Arndt and Greg Stevenson, Jul 11 2011]
+%p A000108 A000108 := n->binomial(2*n,n)/(n+1); G000108 := (1 - sqrt(1 - 4*x)) / (2*x);
+%p A000108 spec := [ A, {A=Prod(Z,Sequence(A))}, unlabeled ]: [ seq(combstruct[count](spec, size=n), n=0..42) ];
+%p A000108 with(combstruct):bin := {B=Union(Z,Prod(B,B))}: seq (count([B,bin,unlabeled],size=n), n=1..25); - Zerinvary Lajos (zerinvarylajos(AT)yahoo.com), Dec 05 2007
+%p A000108 Z[0]:=0: for k to 42 do Z[k]:=simplify(1/(1-z*Z[k-1])) od: g:=sum((Z[j]-Z[j-1]), j=1..42): gser:=series(g, z=0, 42): seq(coeff(gser, z, n), n=0..41); - Zerinvary Lajos (zerinvarylajos(AT)yahoo.com), May 21 2008
+%t A000108 A000108[ n_ ] := (2 n)!/n!/(n+1)!
+%t A000108 A000108[n_] := Hypergeometric2F1[1 - n, -n, 2, 1] (* Richard L. Ollerton, Sep 13 2006 *)
+%t A000108 Table[ CatalanNumber@ n, {n, 0, 24}] (* RGWv, Feb 15 2011 *)
+%o A000108 (MAGMA) C:= func< n | Binomial(2*n,n)/(n+1) >; [ C(n) : n in [0..60]];
+%o A000108 (PARI) a(n)=if(n<0,0,(2*n)!/n!/(n+1)!)
+%o A000108 (PARI) a(n)=local(A,m); if(n<0,0,m=1; A=1+x+O(x^2); while(m<=n,m*=2; A=sqrt(subst(A,x,4*x^2)); A+=(A-1)/(2*x*A)); polcoeff(A,n))
+%o A000108 (PARI) a(n)=if(n<1,n==0,polcoeff(serreverse(x/(1+x)^2+x*O(x^n)),n)) (from Michael Somos)
+%o A000108 (Mupad) combinat::dyckWords::count(n) $ n = 0..38 - Zerinvary Lajos (zerinvarylajos(AT)yahoo.com), Apr 14 2007
+%o A000108 (Sage) [catalan_number(i) for i in range(27)] - Zerinvary Lajos (zerinvarylajos(AT)yahoo.com), Jun 26 2008
+%o A000108 (Sage) [binomial(2*i,i)-binomial(2*i,i-1) for i in xrange(0,25)]# [From Zerinvary Lajos (zerinvarylajos(AT)yahoo.com), May 17 2009]
+%o A000108 (MAGMA) [Catalan(n): n in [0..40]]; - Vincenzo Librandi, Apr 02 2011
+%o A000108 (Haskell)
+%o A000108 a000108 n = a000108_list !! n
+%o A000108 a000108_list = 1 : catalan [1] where
+%o A000108    catalan cs = c : catalan (c:cs) where
+%o A000108       c = sum $ zipWith (*) cs $ reverse cs
+%o A000108 -- Reinhard Zumkeller, Nov 12 2011
+%Y A000108 Cf. A000984, A002420, A048990, A024492, A000142, A022553, A039599, A094216, A094638, A014137, A094639, A099731, A008549, A008276, A094638 (|A008276|), A094216, A094639, A000984, A000108 A000245 A002057 A000344 A003517 A000588 A003518 A003519 A001392, A124926, A098597, A086117, A137697.
+%Y A000108 A row of A060854.
+%Y A000108 See A001003, A001190, A001699, A000081 for other ways to count parentheses.
+%Y A000108 Enumerates objects encoded by A014486.
+%Y A000108 A diagonal of any of the essentially equivalent arrays A009766, A030237, A033184, A059365, A099039, A106566, A130020, A047072.
+%Y A000108 A diagonal of the square array described in A051168.
+%Y A000108 Cf. A000957, A068875, A032443, A179277, A154559 [From Gary W. Adamson]
+%Y A000108 Partitions into Catalan numbers: A033552, A176137. [From Reinhard Zumkeller, Apr 10 2010]
+%K A000108 core,nonn,easy,eigen,nice,changed
+%O A000108 0,3
+%A A000108 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A120588
+%S A120588 1,1,1,2,5,14,42,132,429,1430,4862,16796,58786,208012,742900,2674440,
+%T A120588 9694845,35357670,129644790,477638700,1767263190,6564120420,
+%U A120588 24466267020,91482563640,343059613650,1289904147324,4861946401452,18367353072152
+%N A120588 G.f. satisfies: 3*A(x) = 2 + x + A(x)^2, starting with [1,1,1].
+%C A120588 This is essentially a duplicate of entry A000108, the Catalan numbers (a(n) = A000108(n-1) for n>0).
+%C A120588 In order for the g.f. of an integer sequence to satisfy a functional equation of the form: r*A(x) = c + b*x + A(x)^n, where n > 1, it is necessary that the sequence start with [1, d, m*n*(n-1)/2], where d divides m*n*(n-1)/2 (m>0) and that the coefficients are given by r = n + d^2/m, c = r-1 and b = d^3/m. The remaining terms may then be integer and still satisfy: a_n(k) = r*a(k), where a_n(k) is the k-th term of the n-th self-convolution of the sequence.
+%F A120588 G.f.: A(x) = 1 + Series_Reversion(1+3*x - (1+x)^2).
+%F A120588 Lagrange Inversion yields g.f.: A(x) = Sum_{n>=0} C(2*n,n)/(n+1)*(2+x)^(n+1)/3^(2*n+1).
+%F A120588 G.f.:(3-sqrt(1-4*x))/2 [From Maksym Voznyy (voznyy(AT)mail.ru), Aug 11 2009]
+%F A120588 a(n) = Sum_{k=1..n-1} a(k) * a(n-k) if n>1. - Michael Somos, Jul 23 2011
+%e A120588 A(x) = 1 + x + x^2 + 2*x^3 + 5*x^4 + 14*x^5 + 42*x^6 + 132*x^7 +...
+%e A120588 A(x)^3 = 1 + 2*x + 3*x^2 + 6*x^3 + 15*x^4 + 42*x^5 + 126*x^6 + 396*x^7 +..
+%e A120588 More generally, given the functional equation:
+%e A120588 r*A(x) = r-1 + b*x + A(x)^n
+%e A120588 the series solution is:
+%e A120588 A(x) = Sum_{i>=0} C(n*i,i)/(n*i-i+1)*(r-1+bx)^(n*i-i+1)/r^(n*i+1)
+%e A120588 which can be expressed as:
+%e A120588 A(x) = G( (r-1+bx)^(n-1)/r^n ) * (r-1+bx)/r
+%e A120588 where G(x) satisfies: G(x) = 1 + x*G(x)^n .
+%e A120588 Also we have:
+%e A120588 A(x) = 1 + Series_Reversion[ (1 + r*x - (1+x)^n )/b ].
+%o A120588 (PARI) {a(n)=local(A=1+x+x^2+x*O(x^n));for(i=0,n,A=A-3*A+2+x+A^2);polcoeff(A,n)}
+%o A120588 (PARI) {a(n) = local(A); if( n<1, n==0, A = vector(n); A[1] = 1; for( k=2, n,
+%o A120588    A[k] = sum( j=1, k-1, A[j] * A[k-j])); A[n])} /* Michael Somos, Jul 23 2011 */
+%Y A120588 Cf. A120589 (A(x)^2); A120590 - A120607.
+%K A120588 nonn
+%O A120588 0,4
+%A A120588 Paul D. Hanna (pauldhanna(AT)juno.com), Jun 16 2006, Jan 24 2008
+
+%I A080937
+%S A080937 1,1,2,5,14,42,131,417,1341,4334,14041,45542,147798,479779,1557649,
+%T A080937 5057369,16420730,53317085,173118414,562110290,1825158051,5926246929,
+%U A080937 19242396629,62479659622,202870165265,658715265222,2138834994142
+%N A080937 Number of Catalan paths (nonnegative, starting and ending at 0, step +/-1) of 2*n steps with all values <= 5.
+%C A080937 With interpolated zeros (1,0,1,0,2,...), counts closed walks of length n at start or end node of P_6. The sequence (0,1,0,2,...) counts walks of length n between the start and second node. - Paul Barry (pbarry(AT)wit.ie), Jan 26 2005
+%D A080937 Aleksandar Ilic and Andreja Ilic, On the number of restricted Dyck paths, Filomat 25:3 (2011), 191-201; DOI: 10.2298/FIL1103191I, http://operator.pmf.ni.ac.rs/www/pmf/publikacije/filomat/2011/F25-3-2011/F25-3-17.pdf
+%H A080937 <a href="/index/Rea#recLCC">Index to sequences with linear recurrences with constant coefficients</a>, signature (5,-6,1).
+%F A080937 a(n) =A080934(n, 5)
+%F A080937 G.f.: (1-4*x+3*x^2)/(1-5*x+6*x^2-x^3). - Ralf Stephan (ralf(AT)ark.in-berlin.de), May 13 2003
+%F A080937 a(n) = 5*a(n-1)-6*a(n-2)+a(n-3) - Herbert Kociemba (kociemba(AT)t-online.de), Jun 11 2004
+%F A080937 a(n)=A096976(2*n) - Floor van Lamoen (fvlamoen(AT)hotmail.com), Nov 02 2005
+%F A080937 a(n)=(4/7-4/7*cos(1/7*Pi)^2)*(4*(cos(Pi/7))^2)^n+(1/7-2/7*cos(1/7*Pi)+4/7*cos(1/7*Pi)^2)*(4*(cos(2*Pi/7))^2)^n+(2/7+2/7*cos(1/7*Pi))*(4*(cos(3*Pi/7))^2)^n for n>=0. [From Richard Choulet (richardchoulet(AT)yahoo.fr), Apr 19 2010]
+%o A080937 (PARI) a=vector(99);a[1]=1;a[2]=2;a[3]=5;for(n=4,#a,a[n]=5*a[n-1]-6*a[n-2]+a[n-3]);a \\ Charles R Greathouse IV, Jun 10 2011
+%Y A080937 Cf. A000007, A000012, A011782, A001519, A007051, A080937, A024175, A080938, A033191 which essentially provide the same sequence for different limits and tend to A000108.
+%Y A080937 Cf. A094790, A094789, A005021.
+%K A080937 nonn,easy
+%O A080937 0,3
+%A A080937 Henry Bottomley (se16(AT)btinternet.com), Feb 25 2003
+
+%I A080934
+%S A080934 1,1,0,1,1,0,1,1,1,0,1,1,2,1,0,1,1,2,4,1,0,1,1,2,5,8,1,0,1,1,2,5,13,
+%T A080934 16,1,0,1,1,2,5,14,34,32,1,0,1,1,2,5,14,41,89,64,1,0,1,1,2,5,14,42,
+%U A080934 122,233,128,1,0,1,1,2,5,14,42,131,365,610,256,1,0,1,1,2,5,14,42,132,417,1094
+%N A080934 Square array read by antidiagonals of number of Catalan paths (nonnegative, starting and ending at 0, step +/-1) of 2n steps with all values less than or equal to k.
+%C A080934 Number of permutations in S_n avoiding both 132 and 123...k.
+%C A080934 T(n,k) = number of rooted ordered trees on n nodes of depth <= k. Also, T(n,k) = number of {1,-1} sequences of length 2n summing to 0 with all partial sums are >=0 and <= k. Also, T(n,k) = number of closed walks of length 2n on a path of k nodes starting from (and ending at) a node of degree 1. - Mitch Harris, Mar 06 2004
+%C A080934 Also T(n,k) = k-th coefficient in expansion of the rational function R(n), where R(1) = 1, R(n+1) = 1/(1-x*R(n)), which means also that lim(n->inf,R(n)) = g.f. of Catalan numbers (A000108) wherever it has real value (see Mansour article). - Clark Kimberling and Ralf Stephan, May 26 2004
+%D A080934 Aleksandar Ilic and Andreja Ilic, On the number of restricted Dyck paths, Filomat 25:3 (2011), 191-201; DOI: 10.2298/FIL1103191I, http://operator.pmf.ni.ac.rs/www/pmf/publikacije/filomat/2011/F25-3-2011/F25-3-17.pdf
+%H A080934 T. Mansour, <a href="http://arXiv.org/abs/math.CO/0302014">[math/0302014] Restricted even permutations and Chebyshev polynomials</a>
+%H A080934 T. Mansour and A. Vainshtein, <a href="http://arXiv.org/abs/math.CO/9912052">Restricted permutations, continued fractions and Chebyshev polynomials</a>
+%H A080934 C. Krattenthaler, <a href="http://arXiv.org/abs/math.CO/0002200">Permutations with restricted patterns and Dyck paths</a>
+%F A080934 T(n, k) = sum_i{0<i<k)T(i, k)*T(n-i, k-1) with T(0, k)=1 and T(n, 0)=0^n. For 1<=k<=n T(n, k) =A080935(n, k) =T(n, k-1)+A080936(n, k); for k>=n T(n, k)=A000108(n).
+%F A080934 T(n, k)=2^(2n+1)/(k+2)*Sum{i=1, k+1, [sin(pi*i/(k+2))*cos(pi*i/(k+2))^n]^2} for n>=1 - Herbert Kociemba (kociemba(AT)t-online.de), Apr 28 2004
+%F A080934 G.f. of n-th row: B(n)/B(n+1) where B(j)=[(1+sqrt(1-4x))/2]^j-[(1-sqrt(1-4x))/2]^j.
+%e A080934 Rows start 1,1,1,1,1,1,...; 0,1,1,1,1,1,...; 0,1,2,2,2,2,...; 0,1,4,5,5,5,...; 0,1,8,13,14,14,...; 0,1,16,34,41,42,...; etc. T(3,2)=4 since the paths of length 2*3 (7 points) with all values less than or equal to 2 can take the routes 0101010, 0101210, 0121010 or 0121210, but not 0123210.
+%Y A080934 Cf. A000108, A079214, A080935, A080936. Rows include A000012, A057427, A040000 (offset), columns include (essentially) A000007, A000012, A011782, A001519, A007051, A080937, A024175, A080938, A033191. Main diagonal is A000108.
+%Y A080934 Cf. A094718 (involutions).
+%K A080934 nonn,tabl
+%O A080934 0,13
+%A A080934 Henry Bottomley (se16(AT)btinternet.com), Feb 25 2003
+
+%I A058094
+%S A058094 1,2,5,14,42,132,429,1426,4806,16329,55740,190787,654044,2244153,
+%T A058094 7704047,26455216,90860572,312090478,1072034764,3682565575,
+%U A058094 12650266243,43456340025,149282561256,512821712570,1761669869321,6051779569463
+%N A058094 Number of 321-hexagon-avoiding permutations in S_n, i.e. permutations of 1...n with no submatrix equivalent to 321, 56781234, 46781235, 56718234 or 46718235.
+%C A058094 If y is 321-hexagon avoiding, there are simple explicit formulas for all the Kazhdan-Lusztig polynomials P_{x,y} and the Kazhdan-Lusztig basis element C_y is the product of C_{s_i}'s corresponding to any reduced word for y.
+%D A058094 Z. Stankova and J. West, Explicit enumeration of 321, hexagon-avoiding permutations, Discrete Math., 280 (2004), 165-189.
+%H A058094 S. C. Billey and G. S. Warrington, <a href="http://www-math.mit.edu/~sara/papers/hexagon.ps">Kazhdan-Lusztig Polynomials for 321-hexagon-avoiding permutations</a>, J. Alg. Combinatorics, 13, no. 2 (March 2001), 111-136.
+%F A058094 a(n+1) = 6a(n) - 11a(n-1) + 9a(n-2) - 4a(n-3) - 4a(n-4) + a(n-5) for n >= 6.
+%F A058094 O.g.f.: -x*(1-4*x+4*x^2-3*x^3-x^4+x^5)/(-1+6*x-11*x^2+9*x^3-4*x^4-4*x^5+x^6). - R. J. Mathar (mathar(AT)strw.leidenuniv.nl), Dec 02 2007
+%e A058094 Since the Catalan numbers count 321-avoiding permutations in S_n, a(8)=1430-4=1426 subtracting the four forbidden hexagon patterns.
+%p A058094 a[1]:=1: a[2]:=2: a[3]:=5: a[4]:=14: a[5]:=42: a[6]:=132: for n from 6 to 35 do a[n+1]:=6*a[n]-11*a[n-1]+9*a[n-2]-4*a[n-3]-4*a[n-4]+a[n-5] od: seq(a[n],n=1..35);
+%Y A058094 Cf. A000108, A092489-A092492.
+%K A058094 nice,nonn,easy
+%O A058094 1,2
+%A A058094 Sara C. Billey (sara(AT)math.mit.edu), Dec 03 2000
+%E A058094 More terms from Emeric Deutsch (deutsch(AT)duke.poly.edu), May 04 2004
+
+%I A024175
+%S A024175 1,1,2,5,14,42,132,428,1416,4744,16016,54320,184736,629280,2145600,
+%T A024175 7319744,24979584,85262464,291057920,993641216,3392317952,11581727232,
+%U A024175 39541748736,135002491904,460924372992,1573688313856,5372896120832
+%N A024175 Expansion of (x^3-6*x^2+5*x-1)/((2*x-1)*(2*x^2-4*x+1))
+%C A024175 Number of (s(0), s(1), ..., s(2n)) such that 0 < s(i) < 8 and |s(i) - s(i-1)| = 1 for i = 1,2,....,2n, s(0) = 1, s(2n) = 1. - Herbert Kociemba (kociemba(AT)t-online.de), Jun 11 2004
+%C A024175 Contribution from Johannes W. Meijer (meijgia(AT)hotmail.com), May 29 2010: (Start)
+%C A024175 Counts all paths of length (2*n), n>=0, starting and ending at the initial node on the path graph P_7, see the Maple program.
+%C A024175 (End)
+%H A024175 <a href="/index/Rea#recLCC">Index to sequences with linear recurrences with constant coefficients</a>, signature (6,-10,4).
+%F A024175 a(n)=(1/4)*Sum(r, 1, 7, Sin(r*Pi/8)^2(2Cos(r*Pi/8))^(2n)), n>=1 a(n)= 6a(n-1)-10a(n-2)+4a(n-3), n>=4 - Herbert Kociemba (kociemba(AT)t-online.de), Jun 11 2004
+%F A024175 a(n)=(1/4)*((2+sqrt(2))^(n-1)+(2-sqrt(2))^(n-1)+2^n) for n>=1. [From Richard Choulet (richardchoulet(AT)yahoo.fr), Apr 19 2010]
+%F A024175 a(n) = 2^(n-2) + A006012(n-1)/2, n>0. - R. J. Mathar, Mar 14 2011
+%p A024175 Contribution from Johannes W. Meijer (meijgia(AT)hotmail.com), May 29 2010: (Start)
+%p A024175 with(GraphTheory): G:=PathGraph(7): A:= AdjacencyMatrix(G): nmax:=26; n2:=2*nmax: for n from 0 to n2 do B(n):=A^n; a(n):=B(n)[1,1]; od: seq(a(2*n),n=0..nmax);
+%p A024175 (End)
+%Y A024175 Cf. A006012, A030436 and A094803.
+%K A024175 nonn
+%O A024175 0,3
+%A A024175 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A033191
+%S A033191 1,1,2,5,14,42,132,429,1430,4861,16778,58598,206516,732825,2613834,
+%T A033191 9358677,33602822,120902914,435668420,1571649221,5674201118,
+%U A033191 20497829133,74079051906,267803779710,968355724724
+%N A033191 Binomial transform of [ 1, 0, 1, 1, 3, 6, 15, 36, 91, 231, 595,... ], which is essentially binomial(fibonacci(k) + 1, 2).
+%C A033191 Number of (s(0), s(1), ..., s(2n)) such that 0 < s(i) < 10 and |s(i) - s(i-1)| = 1 for i = 1,2,....,2n, s(0) = 1, s(2n) = 1. - Herbert Kociemba (kociemba(AT)t-online.de), Jun 14 2004
+%C A033191 Contribution from Paul Barry (pbarry(AT)wit.ie), Dec 17 2009: (Start)
+%C A033191 The sequence 1,2,5,14,... has g.f. 1/(1-2x-x^2/(1-2x-x^2/(1-2x-x^2/(1-2x))))=(1-6x+10x^2-4x^3)/(1-8x+21x^2-20x^3+5x^4),
+%C A033191 and is the second binomial transform A001519 aerated. (End)
+%C A033191 Contribution from Johannes W. Meijer (meijgia(AT)hotmail.com), May 29 2010: (Start)
+%C A033191 Counts all paths of length (2*n), n>=0, starting and ending at the initial node on the path graph P_9, see the Maple program.
+%C A033191 (End)
+%F A033191 G.f.: (1-7x+15x^2-10x^3+x^4)/(1-8x+21x^2-20x^3+5x^4). - Ralf Stephan (ralf(AT)ark.in-berlin.de), May 13 2003
+%F A033191 a(n)=(1/5)*Sum(r, 1, 9, Sin(r*Pi/10)^2(2Cos(r*Pi/10))^(2n)), n>=1 a(n)=8a(n-1)-21a(n-2)+20a(n-3)-5a(n-4), n>=5 - Herbert Kociemba (kociemba(AT)t-online.de), Jun 14 2004
+%F A033191 a(2)=1, a(3)=2, a(4)=5, a(5)=14, a(n)=8a(n-1)-21a(n-2)+20a(n-3)- 5a(n-4) [From Harvey P. Dale, Apr 26 2011]
+%p A033191 Contribution from Johannes W. Meijer (meijgia(AT)hotmail.com), May 29 2010: (Start)
+%p A033191 with(GraphTheory): G:=PathGraph(9): A:= AdjacencyMatrix(G): nmax:=24; n2:=nmax*2: for n from 0 to n2 do B(n):=A^n; a(n):=B(n)[1,1]; od: seq(a(2*n),n=0..nmax);
+%p A033191 (End)
+%t A033191 CoefficientList[Series[(1-7x+15x^2-10x^3+x^4)/(1-8x+21x^2-20x^3+5x^4), {x,0,30}],x] (* or *) Join[{1},LinearRecurrence[{8,-21,20,-5},{1,2,5,14}, 30]]  (* From Harvey P. Dale, Apr 26 2011 *)
+%Y A033191 Cf. A033192.
+%Y A033191 Cf. A081567, A147748 and A178381.
+%K A033191 nonn
+%O A033191 0,3
+%A A033191 Simon Norton (simon(AT)dpmms.cam.ac.uk)
+
+%I A061922
+%S A061922 1,1,2,5,14,42,132,421,1382,4478,15580,54114,181676,650484,2289320,
+%T A061922 8028901,28045302,103229014,372640460,1336511110,4882492452,
+%U A061922 17534836812,63692926552,234287550818,868236370364,3281589811404
+%N A061922 Xcatalans - produced as a self-convolved sequence like Catalan numbers (A000108) but use carryless GF(2)[ X ] polynomial multiplication.
+%C A061922 Shifts one place left when Xmult-convolved (XMULTCONV) with itself.
+%p A061922 Xcatalans(30); Xcatalans := proc(upto_n) local a,i,k; a := [1]; for i from 1 to upto_n do a := [ op(a), add(Xmult(a[k],a[i-k+1]), k=1..i)]; od; RETURN(a); end;
+%p A061922 XMULTCONV := proc(a,b) local c,i,k,n; n := min( nops(a), nops(b) ); c := []; for i from 0 to n-1 do c := [ op(c), add(Xmult(a[k+1],b[i-k+1]), k=0..i)]; od; RETURN(c); end;
+%Y A061922 For Xmult, see A048720 (Xmult table) or A048631 (Xfactorials). Other self-convolved sequences: A000108, A007460 - A007464, A025192.
+%K A061922 nonn,easy,eigen
+%O A061922 0,3
+%A A061922 Antti Karttunen May 15 2001
+
+%I A000744
+%S A000744 1,2,5,14,42,144,563,2526,12877,73778,469616,3288428,25121097,
+%T A000744 207902202,1852961189,17694468210,180234349762,1950592724756,
+%U A000744 22352145975707,270366543452702,3442413745494957,46021681757269830
+%N A000744 Boustrophedon transform (second version) of Fibonacci numbers 1,1,2,3,... ...
+%H A000744 J. Millar, N. J. A. Sloane and N. E. Young, A new operation on sequences: the Boustrophedon on transform, J. Combin. Theory, 17A 44-54 1996 (<a href="http://www.research.att.com/~njas/doc/bous.txt">Abstract</a>, <a href="http://www.research.att.com/~njas/doc/bous.pdf">pdf</a>, <a href="http://www.research.att.com/~njas/doc/bous.ps">ps</a>).
+%H A000744 N. J. A. Sloane, <a href="/transforms.txt">Transforms</a>
+%H A000744 <a href="/index/Bo#boustrophedon">Index entries for sequences related to boustrophedon transform</a>
+%p A000744 read(transforms);
+%p A000744 with(combinat):
+%p A000744 F:=fibonacci;
+%p A000744 [seq(F(n), n=1..50)];
+%p A000744 BOUS2(%);
+%Y A000744 Cf. A000045, A000687, A000738, A092073.
+%K A000744 nonn
+%O A000744 0,2
+%A A000744 N. J. A. Sloane (njas(AT)research.att.com).
+%E A000744 Entry revised by N. J. A. Sloane, Mar 16 2011
+
+%I A080938
+%S A080938 1,1,2,5,14,42,132,429,1429,4846,16645,57686,201158,704420,2473785,
+%T A080938 8704089,30664890,108126325,381478030,1346396146,4753200932,
+%U A080938 16783118309,59266297613,209302921830,739203970773,2610763825782,9221050139566
+%N A080938 Number of Catalan paths (nonnegative, starting and ending at 0, step +/-1) of 2n steps with all values less than or equal to 7.
+%F A080938 a(n) =A080934(n, 7)
+%F A080938 G.f.: (1-6x+10x^2-4x^3)/(1-7x+15x^2-10x^3+x^4). - Ralf Stephan (ralf(AT)ark.in-berlin.de), May 13 2003
+%F A080938 a(n)=7a(n-1)-15a(n-2)+10a(n-3)-a(n-4) - Herbert Kociemba (kociemba(AT)t-online.de), Jun 13 2004
+%Y A080938 Cf. A000007, A000012, A011782, A001519, A007051, A080937, A024175, A080938, A033191 which essentially provide the same sequence for different limits and tend to A000108.
+%K A080938 nonn
+%O A080938 0,3
+%A A080938 Henry Bottomley (se16(AT)btinternet.com), Feb 25 2003
+
+%I A137560
+%S A137560 1,0,1,0,1,1,0,1,1,2,1,0,1,1,2,5,6,6,4,1,0,1,1,2,5,14,26,44,69,94,114,
+%T A137560 116,94,60,28,8,1,0,1,1,2,5,14,42,100,221,470,958,1860,3434,6036,
+%U A137560 10068,15864,23461,32398,41658,49700,54746,55308,50788,41944,30782,19788
+%N A137560 Triangle read by rows: coefficients of the Mandelbrot-Julia quadratic polynomials (sometimes called cycle polynomials or Pc polynomials): Pc[0]=1; Pc[1]=c; Pc[n]=nestedfunction(Pc[z^2+c],n].
+%C A137560 Row sums are: {1, 1, 2, 5, 26, 677, 458330, 210066388901, 44127887745906175987802, ...};
+%C A137560 The root of one of these polynomials g1ves Julia Douady's rabbit.
+%C A137560 These polynomials are basic to the theory of "cycles" in complex dynamics.
+%C A137560 These polynomials are also described in a comment by Donald D. Cross in the entry for the Catalan numbers, A000108.
+%C A137560 Except for the first row, row sums are A003095 (a(n) = a(n-1)^2 + 1). [From Gerald McGarvey (gerald.mcgarvey(AT)comcast.net), Sep 26 2008]
+%C A137560 The coefficients also enumerate the ways to divide a line segment into at most j pieces, with 0 <= j <= 2^n, in which every piece is a power of two in size (for example, 1/4 is allowed but 3/8 is not), no piece is less than 1/2^n of the whole, and every piece is aligned on a power of 2 boundary (so 1/4+1/2+1/4=1 is not allowed). See the everything2 web link (which treats the segment as a musical measure). [From Robert Munafo (mrob27(AT)gmail.com), Oct 29 2009]
+%C A137560 Also the number of binary trees with exactly J leaf nodes and a height no greater than N. See the Munafo web page and note the connection to A003095. [From Robert Munafo (mrob27(AT)gmail.com), Nov 03 2009]
+%C A137560 The sequence of polynomials is conjectured to tend to the Catalan numbers (A000108) [From Jon Perry (jonperrydc(AT)btinternet.com), Oct 31 2010]
+%D A137560 Lennart Carleson and Theodore W. Gamelin, Complex Dynamics, Springer,New York,1993,pp 128-129
+%H A137560 Roger L. Bagula, <a href="/A137560/b137560.txt">Table of n, a(n) for n = 1..264</a>
+%H A137560 Robert Munafo, <a href="http://www.mrob.com/pub/muency/lemniscates.html">Lemniscates</a> [From Robert Munafo (mrob27(AT)gmail.com), Oct 29 2009]
+%H A137560 Everything2 user ferrouslepidoptera, <a href="http://www.everything2.com/index.pl?node_id=710894&amp;lastnode_id=0">How many melodies are there in the universe?</a> [From Robert Munafo (mrob27(AT)gmail.com), Oct 29 2009]
+%e A137560 Examples: Pc[2] = f[z,c] = z^2+c with z->c = c^2+c; Pc[3] = f[f[z,c],c] => c+c^2+2*c^3+c^4.
+%e A137560 {1},
+%e A137560 {0, 1},
+%e A137560 {0, 1, 1},
+%e A137560 {0, 1, 1, 2, 1},
+%e A137560 {0, 1, 1, 2, 5, 6, 6, 4, 1},
+%e A137560 {0, 1, 1, 2, 5, 14, 26, 44, 69, 94, 114, 116, 94, 60, 28, 8, 1},
+%e A137560 {0, 1, 1, 2, 5, 14, 42, 100, 221, 470, 958, 1860, 3434, 6036, 10068, 15864, 23461, 32398, 41658, 49700, 54746, 55308, 50788, 41944, 30782, 19788, 10948, 5096, 1932, 568, 120, 16, 1},
+%t A137560 f[z_] = z^2 + x; g = Join[{1}, ExpandAll[NestList[f, x, 7]]]; a = Table[CoefficientList[g[[n]], x], {n, 1, Length[g]}]; Flatten[a] Table[Apply[Plus, CoefficientList[g[[n]], x]], {n, 1, Length[g]}];
+%t A137560 The following Mathematica program gives a second method for computing the polynomials without using a nesting method: p(x,n)=p(x,n-1)^2+x.
+%t A137560 p[x, -1] = 0; p[x, 0] = 1; p[x, 1] = x; p[x, 2] = x + x^2; p[x_, n_] := p[x, n] = p[x, n - 1]^2 + x; Table[ExpandAll[p[x, n]], {n, 0, 7}]; a = Table[CoefficientList[p[x, n], x], {n, 0, 7}]; Flatten[a] Table[Apply[Plus, CoefficientList[p[x, n], x]], {n, 0, 7}];
+%o A137560 (PARI) p = vector(6); p[1] = x; for(n=2,6, p[n] = p[n-1]^2 + x); print1("1"); for(n=1,6, for(m=0,poldegree(p[n]), print1(", ",polcoeff(p[n],m)))) [From Gerald McGarvey (gerald.mcgarvey(AT)comcast.net), Sep 26 2008]
+%Y A137560 A052154 gives the same array read by antidiagonals. A137867 gives the related Misiurewicz polynomials. [From Robert Munafo (mrob27(AT)gmail.com), Dec 12 2009]
+%K A137560 nonn,tabl
+%O A137560 1,10
+%A A137560 Roger L. Bagula (rlbagulatftn(AT)yahoo.com), Apr 25 2008, Apr 27 2008
+%E A137560 Edited by N. J. A. Sloane (njas(AT)research.att.com), Apr 26 2008
+
+%I A054393
+%S A054393 1,1,2,5,14,42,132,428,1417,4757,16119,54963,188219,646460,2224944,
+%T A054393 7668915,26461005,91371594,315689675,1091166442,3772747245,
+%U A054393 13047503222,45131078409,156129312025,540181837728,1869097588540,6467740095295
+%N A054393 Number of permutations with certain forbidden subsequences.
+%D A054393 E. Barcucci et al., From Motzkin to Catalan Permutations, Discr. Math., 217 (2000), 33-49.
+%H A054393 J. W. Layman, <a href="http://www.cs.uwaterloo.ca/journals/JIS/index.html">The Hankel Transform and Some of its Properties</a>, J. Integer Sequences, 4 (2001), #01.1.5.
+%Y A054393 Interpolates between Motzkin numbers (A001006) and Catalan numbers (A000108). Cf. A005773, A054391-A054394.
+%K A054393 nonn
+%O A054393 0,3
+%A A054393 N. J. A. Sloane (njas(AT)research.att.com), Elisa Pergola (elisa(AT)dsi.unifi.it), May 21 2000
+
+%I A126569
+%S A126569 1,2,5,14,42,132,430,1444,4981,17594,63442,232828,867146,3269060,
+%T A126569 12446684,47771496,184544427,716658870,2794956099,10938266562
+%N A126569 Top-left "head" entry of the n-th power of the E8 Cartan matrix.
+%H A126569 Anonymous, <a href="http://en.wikipedia.org/wiki/E8_(Mathematics)">E8</a>, Wikipedia.
+%F A126569 a(n) = leftmost term in M^n * [1,0,0,0,0,0,0,0], where M = the 8x8 matrix [2,-1,0,0,0,0,0,0; -1,2,-1,0,0,0,0,0; 0,-1,2,-1,0,0,0,-1; 0,0,-1, 2,-1,0,0,0; 0,0,0-1,2,-1,0,0; 0,0,0,0,-1,2,-1,0; 0,0,0,0,0,-1,2,0; 0,0,-1,0,0,0,0,2].
+%F A126569 a(n)=16a(n-1)-105a(n-2)+364a(n-3)-714a(n-4)+784(n-5)-440a(n-6)+96a(n-7)-a(n-8). G.f.: -(2*x-1)*(2*x^2-4*x+1)*(x^4-16*x^3+20*x^2-8*x+1)/(1-16*x+105*x^2-364*x^3+714*x^4-784*x^5+440*x^6-96*x^7+x^8) [R. J. Mathar (mathar(AT)strw.leidenuniv.nl), May 08 2009]
+%e A126569 a(6) = 430 = leftmost term in M^6 * [1,0,0,0,0,0,0,0].
+%p A126569 E8 := matrix(8,8,[ [2, -1, 0, 0, 0, 0, 0, 0 ], [ -1, 2, -1, 0, 0, 0, 0, 0 ], [ 0, -1, 2, -1, 0, 0, 0, -1 ], [ 0, 0, -1, 2, -1, 0, 0, 0 ], [ 0, 0, 0, -1, 2, -1, 0, 0 ], [ 0, 0, 0, 0, -1, 2, -1, 0 ], [ 0, 0, 0, 0, 0, -1, 2, 0 ], [ 0, 0, -1, 0, 0, 0, 0, 2 ] ]) ;
+%p A126569 printf("1,") ; for n from 1 to 20 do T := evalm(E8^n) ; printf("%a,", T[1,1]) ; od: # R. J. Mathar (mathar(AT)strw.leidenuniv.nl), May 08 2009
+%Y A126569 Cf. A126566, A126567, A126568.
+%K A126569 nonn
+%O A126569 0,2
+%A A126569 Gary W. Adamson (qntmpkt(AT)yahoo.com), Dec 28 2006
+%E A126569 Edited by R. J. Mathar (mathar(AT)strw.leidenuniv.nl), May 08 2009
+
+%I A035052
+%S A035052 1,1,2,5,14,42,134,444,1518,5318,18989,68856,252901,938847,3517082,
+%T A035052 13278844,50475876,193014868,741963015,2865552848,11113696421,
+%U A035052 43266626430,169019868095,662337418989,2602923589451,10256100717875
+%N A035052 Number of sets of rooted connected graphs where every block is a complete graph.
+%H A035052 T. D. Noe, <a href="/A035052/b035052.txt">Table of n, a(n) for n=0..200</a>
+%H A035052 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=862">Encyclopedia of Combinatorial Structures 862</a>
+%H A035052 N. J. A. Sloane, <a href="/transforms.txt">Transforms</a>
+%F A035052 Euler transform of A007563.
+%p A035052 with (numtheory): etr:= proc(p) local b; b:=proc(n) option remember; `if`(n=0,1, add (add (d*p(d), d=divisors(j)) *b(n-j), j=1..n)/n) end end: b:= etr(aa): c:= etr(b): aa:= n-> if n=0 then 0 else c(n-1) fi: a:= etr (aa): seq (a(n), n=0..25); [From Alois P. Heinz (heinz(AT)hs-heilbronn.de), Sep 09 2008]
+%Y A035052 Cf. A007549, A007563, A030019, A035051, A035053.
+%K A035052 nonn
+%O A035052 0,3
+%A A035052 Christian G. Bower (bowerc(AT)usa.net), Oct 15 1998.
+
+%I A036769
+%S A036769 1,1,2,5,14,42,132,429,1429,4852,16730,58422,206192,734332,2635680,
+%T A036769 9524301,34622207,126520393,464517300,1712650520,6338433840,
+%U A036769 23538973950,87690410580,327611738790,1227178265182,4607940112396,17341126763366
+%N A036769 Number of rooted trees with a degree constraint.
+%D A036769 L. Takacs, Enumeration of rooted trees and forests, Math. Scientist 18 (1993), 1-10, esp. Eq. (6).
+%H A036769 <a href="/index/Ro#rooted">Index entries for sequences related to rooted trees</a>
+%p A036769 r := 7; [ seq((1/n)*add( (-1)^j*binomial(n,j)*binomial(2*n-2-j*(r+1), n-1),j=0..floor((n-1)/(r+1))), n=1..30) ]; end;
+%o A036769 (PARI) a(n)=if(n<0,0,polcoeff(serreverse(x/sum(k=0,7,x^k)+O(x^(n+2))),n+1)) (from R. Stephan)
+%K A036769 nonn
+%O A036769 0,3
+%A A036769 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A052154
+%S A052154 1,1,0,1,1,0,1,1,0,0,1,1,2,0,0,1,1,2,1,0,0,1,1,2,5,0,0,0,1,1,2,5,6,0,
+%T A052154 0,0,1,1,2,5,14,6,0,0,0,1,1,2,5,14,26,4,0,0,0,1,1,2,5,14,42,44,1,0,0,
+%U A052154 0,1,1,2,5,14,42,100,69,0,0,0,0
+%N A052154 Array read by antidiagonals: a(n,k)= coefficient of z^n of p_k(z), where p_k+1(z)=(p_k(z))^2+z, p_1(z)=z.
+%C A052154 a(n,k+1)=a(n,k), n<=k; a(n,n)=A000108. Note that the set {z: limit(p_k(z),k->infinity) not=infinity} of complex numbers defines the Mandelbrot set.
+%H A052154 R. P. Munafo, <a href="http://www.mrob.com/pub/muency.html">Mu-Ency - The Encyclopedia of the Mandelbrot Set</a>
+%H A052154 Eric Weisstein's World of Mathematics, <a href="http://mathworld.wolfram.com/MandelbrotSet.html">Mandelbrot Set</a>
+%H A052154 R. Munafo, <a href="http://www.mrob.com/pub/math/seq-a052154.html">Coefficients of Lemniscates for Mandelbrot Set</a>
+%F A052154 a(n, k+1)=sum(a(i, k)*a(n-i, k), i=1..n-1) for n=2..2^k, a(1, k)=1, a(n, k+1)=0 for n>2^k.
+%e A052154 p_1(z)=z: coefficient = 1 = a(1,1); p_2(z)=z^2+z: coefficients = 1, 1 = a(1,2), a(2,2); p_3(z)=(z^2+z)^2+z=z+z^2+2z^3+z^4: coefficients = 1,1,2,1 = (1,3), a(2,3), a(3,3), a(4,3); ...
+%Y A052154 Cf. A000108.
+%Y A052154 Cf. A137560, which gives the same array read by rows. [From Robert Munafo (mrob27(AT)gmail.com), Dec 12 2009]
+%K A052154 nice,nonn,tabl,easy
+%O A052154 1,13
+%A A052154 Klaus Strassburger (strass(AT)ddfi.uni-duesseldorf.de), Jan 24 2000
+
+%I A054392
+%S A054392 1,1,2,5,14,42,131,418,1352,4410,14463,47605,157084,519255,1718653,
+%T A054392 5693903,18877509,62620857,207816230,689899944,2290913666,7608939443,
+%U A054392 25276349558,83977959853,279039638062,927272169336,3081641953082
+%N A054392 Number of permutations with certain forbidden subsequences.
+%C A054392 Apparently the Motzkin transform of A005251, after A005251(0) is set to 1. [From R. J. Mathar (mathar(AT)strw.leidenuniv.nl), Dec 11 2008]
+%D A054392 E. Barcucci et al., From Motzkin to Catalan Permutations, Discr. Math., 217 (2000), 33-49.
+%Y A054392 Interpolates between Motzkin numbers (A001006) and Catalan numbers (A000108). Cf. A005773, A054391-A054394.
+%K A054392 nonn
+%O A054392 0,3
+%A A054392 N. J. A. Sloane (njas(AT)research.att.com), Elisa Pergola (elisa(AT)dsi.unifi.it), May 21 2000
+
+%I A054394
+%S A054394 1,1,2,5,14,42,132,429,1429,4847,16660,57820,202086,709928,2503266,
+%T A054394 8850681,31355020,111242127,395091069,1404332528,4994581900,
+%U A054394 17771328588,63253477326,225194224134,801884971816,2855809269782,10171707099565
+%N A054394 Number of permutations with certain forbidden subsequences.
+%D A054394 E. Barcucci et al., From Motzkin to Catalan Permutations, Discr. Math., 217 (2000), 33-49.
+%F A054394 Conjecture: g.f.(x)=1+z*(1-2z+z^2-z^3)/(1-3z+3z^2-3z^3+2z^4-z^5) where z=x*A001006(x) and A001006(x) is the g.f. of A001006. [From R. J. Mathar (mathar(AT)strw.leidenuniv.nl), Jul 07 2009]
+%Y A054394 Interpolates between Motzkin numbers (A001006) and Catalan numbers (A000108). Cf. A005773, A054391-A054393.
+%K A054394 nonn
+%O A054394 0,3
+%A A054394 N. J. A. Sloane (njas(AT)research.att.com), Elisa Pergola (elisa(AT)dsi.unifi.it), May 21 2000
+
+%I A060795
+%S A060795 1,2,5,14,42,165,714,3094,14858,79534,447051,2714690,17395070,
+%T A060795 114371070,783152070,5708587335,43848093003,342444658094,
+%U A060795 2803119896185,23619540863730,201813981102615,1793779293633437,16342050964565645
+%N A060795 Write product of first n primes as x*y with x<y and x maximal; sequence gives value of x.
+%C A060795 Or, lower central divisor of n-th primorial.
+%F A060795 a(n)=A060775[A002110(n)] - Labos E. (labos(AT)ana.sote.hu), Apr 27 2001
+%e A060795 n=8: q(8)=2.3.5.7.11.13.17.19=9699690. Its 128-th and 129-th divisors are {3094,3135}: a(8)=3094 and 3094 < A000196(9699690)=3114<3135. [Corrected by Colin Barker, Oct 22 2010]
+%e A060795 2*3*5*7 = 210 = 14*15 with difference of 1, so a(4) = 14.
+%Y A060795 Cf. A061055-A061060, A061030-A061033.
+%Y A060795 Cf. A060755, A000196, A033677.
+%K A060795 nonn
+%O A060795 1,2
+%A A060795 Labos E. (labos(AT)ana.sote.hu), Apr 27 2001
+%E A060795 More terms from Ed Pegg Jr (ed(AT)mathpuzzle.com), May 28 2001
+%E A060795 Terms 16 through 37 computed by Jud McCranie (JudMcCranie(AT)ugaalum.uga.edu) Apr 15 2000.
+
+%I A126567
+%S A126567 1,2,5,14,42,132,430,1444,4981,17594,63441,232806,866870,3266460,
+%T A126567 12426210,47629020,183638729,711285170,2764753405,10775740030,
+%U A126567 42086252770,164635420788,644811687734,2527808259668,9916569410301
+%N A126567 Sequence generated from the E6 Cartan matrix.
+%H A126567 Wikipedia, <a href="http://en.wikipedia.org/wiki/E6_%28mathematics%29">E6, Mathematics</a>.
+%F A126567 Let M denote the E6 Cartan matrix [2,-1,0,0,0,0; -1,2,-1,0,0,0; 0,-1,2,-1,0,-1; 0,0,-1,2,-1,0; 0,0,0,-1,2,0; 0,0,-1,0,0,2]. a(n) = leftmost term in M^n * [1,0,0,0,0,0].
+%e A126567 a(6) = 430 since leftmost term of M^6 * [1,0,0,0,0,0] = 430.
+%t A126567 f[n_] := (MatrixPower[{{2, -1, 0, 0, 0, 0}, {-1, 2, -1, 0, 0, 0}, {0, -1, 2, -1, 0, -1}, {0, 0, -1, 2, -1, 0}, {0, 0, 0, -1, 2, 0}, {0, 0, -1, 0, 0, 2}}, n].{1, 0, 0, 0, 0, 0})[[1]]; Table[ f@n, {n, 0, 25}] - Robert G. Wilson v (rgwv(AT)rgwv.com), Aug 07 2007
+%Y A126567 Cf. A126566, A126568, A126569.
+%K A126567 nonn
+%O A126567 0,2
+%A A126567 Gary W. Adamson (qntmpkt(AT)yahoo.com), Dec 28 2006
+%E A126567 More terms from Robert G. Wilson v (rgwv(AT)rgwv.com), Aug 07 2007
+
+%I A155050
+%S A155050 1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,1,1,2,5,2,1,1,1,1,2,5,5,2,
+%T A155050 1,1,1,1,2,5,14,5,2,1,1,1,1,2,5,14,14,5,2,1,1,1,1,2,5,14,42,14,5,2,1,
+%U A155050 1,1,1,2,5,14,42,42,14,5,2,1,1,1,1,2,5,14,42,132,42,14,5,2,1,1
+%N A155050 A symmetric Catalan based triangle.
+%C A155050 Central coefficients are A000108. Row sums are A155051.
+%C A155050 Image under Riordan array ((1+x)/(1-x),x)^{-1} is A155052.
+%F A155050 Number triangle T(n,k)=sum{j=0..n, [j<=k]*[j<=n-k]*(ct(j+1)-ct(j))} where ct(n):=if(n=0,0,A000108(n-1)).
+%e A155050 Triangle begins
+%e A155050 1,
+%e A155050 1, 1,
+%e A155050 1, 1, 1,
+%e A155050 1, 1, 1, 1,
+%e A155050 1, 1, 2, 1, 1,
+%e A155050 1, 1, 2, 2, 1, 1,
+%e A155050 1, 1, 2, 5, 2, 1, 1,
+%e A155050 1, 1, 2, 5, 5, 2, 1, 1,
+%e A155050 1, 1, 2, 5, 14, 5, 2, 1, 1,
+%e A155050 1, 1, 2, 5, 14, 14, 5, 2, 1, 1,
+%e A155050 1, 1, 2, 5, 14, 42, 14, 5, 2, 1, 1
+%K A155050 easy,nonn,tabl
+%O A155050 0,13
+%A A155050 Paul Barry (pbarry(AT)wit.ie), Jan 19 2009
+
+%I A057413
+%S A057413 1,2,5,14,42,132,430,1442,4956,17400,62251,226506,836911,3136182,
+%T A057413 11906908,45761338,177903128,699167112,2776219871,11132523840,
+%U A057413 45062497156,184057276510,758328417263,3150593560374,13195743501195
+%N A057413 Number of staircase polygons of perimeter 2n with any number of (staircase polygon) holes on square lattice (not allowing rotations).
+%H A057413 I. Jensen, <a href="/A057413/b057413.txt">Table of n, a(n) for n = 1..51</a> (from link below)
+%H A057413 I. Jensen, <a href="http://www.ms.unimelb.edu.au/~iwan/polygons/series/staircase.perim.allholes.ser">More terms</a>
+%K A057413 nonn
+%O A057413 2,2
+%A A057413 N. J. A. Sloane (njas(AT)research.att.com), Aug 30 2000
+
+%I A061815
+%S A061815 1,1,2,5,14,42,133,433,1455,4958,17247,60502,215353,770865,2789365,
+%T A061815 10134529,37130526,136451349,504837219,1872121732,6980767968,
+%U A061815 26078614284,97872756530,367861581953,1388061197005,5243972732886
+%N A061815 G.f. A(x) satisfies A(x) = 1+Sum_{j=0 to infinity} ((1 + x^(j+1)*A(x))^a_j-1).
+%Y A061815 Cf. A061396.
+%K A061815 nonn
+%O A061815 0,3
+%A A061815 Vladeta Jovovic (vladeta(AT)eunet.rs), Jun 22 2001
+
+%I A063545
+%S A063545 1,2,5,14,42,150,780,4550
+%N A063545 Largest number of triangulations of n points in the plane.
+%D A063545 F. Santos and R. Seidel, A better upper bound on the number of triangulations of a planar point set, J. Combin. Theory, A 102 (2003), 186-193.
+%H A063545 O. Aichholzer and H. Krasser, <a href="http://www.ist.tugraz.at/publications/oaich/psfiles/ak-psotd-01.ps.gz">The point set order type data base: a collection of applications and results</a>, pp. 17-20 in Abstracts 13-th Canadian Conference on Computational Geometry (CCCG '01), Waterloo, Aug. 13-15, 2001.
+%Y A063545 Cf. A063544.
+%K A063545 nonn,nice,hard
+%O A063545 3,2
+%A A063545 N. J. A. Sloane (njas(AT)research.att.com), Aug 14 2001
+
+%I A101489
+%S A101489 1,1,1,1,1,1,1,1,2,2,1,1,2,4,4,1,1,2,5,10,10,1,1,2,5,13,26,26,1,1,2,5,
+%T A101489 14,37,73,73,1,1,2,5,14,41,109,213,213,1,1,2,5,14,42,126,334,645,645,
+%U A101489 1,1,2,5,14,42,131,398,1050,2007,2007,1,1,2,5,14,42,132,422,1289,3377
+%N A101489 Square array T(n,k), read by antidiagonals: number of binary trees, with n nodes that have no label greater than k.
+%H A101489 M. Bousquet-Melou, <a href="http://arXiv.org/abs/math.CO/0501266">Limit laws for embedded trees</a>
+%F A101489 G.f. of k-th row: A(t)=B(t)*(1-C(t)^(k+2))*(1-C(t)^(k+7))/[(1-C(t)^(k+4))*(1-C(t)^(k+5))], with B(t) the g.f. of A000108 and C(t) the g.f. of A101490.
+%e A101489 1,1,1,2,4,10,26,73,213,645,
+%e A101489 1,1,2,4,10,26,73,213,645,2007,
+%e A101489 1,1,2,5,13,37,109,334,1050,3377,
+%e A101489 1,1,2,5,14,41,126,398,1289,4253,
+%e A101489 1,1,2,5,14,42,131,422,1390,4664,
+%e A101489 1,1,2,5,14,42,132,428,1422,4812,
+%e A101489 1,1,2,5,14,42,132,429,1429,4853,
+%e A101489 1,1,2,5,14,42,132,429,1430,4861,
+%Y A101489 Rows converge to A000108. First row is A101488.
+%K A101489 nonn,tabl
+%O A101489 0,9
+%A A101489 Ralf Stephan, Jan 21 2005
+
+%I A122881
+%S A122881 1,1,2,1,2,5,1,2,5,13,1,2,5,14,34,1,2,5,14,42,89,1,2,5,14,42,131,233,
+%T A122881 1,2,5,14,42,132,417,610,1,2,5,14,42,132,429,1341,1597,1,2,5,14,42,
+%U A122881 132,429,1429,4334,4181
+%N A122881 Triangle read by rows: number of Catalan paths of 2n steps of all values less than or equal to m.
+%C A122881 Convergents of k-th diagonals relate to (2k+3)-Polygons; e.g. right border relates to the Pentagon (N=5), next border relates to the Heptagon.(N=7). Convergents of the diagonals are 2 + 2Cos 2Pi/N and are roots to Morgan-Voyce polynomials. k2 diagonal = A080937, number of Catalan paths of 2n steps of all values less than or equal to 5. k3 diagonal = A080938, number of Catalan paths of 2n steps of all values less than or equal to 7.
+%F A122881 Begin with polygonal matrices of the form (exemplified by the Heptagonal matrix M3: [1, 1, 1; 1, 1, 0; 1, 0, 0]). Let matrix P3 = 1 / M3^2; then for n X n matrices P2, P3, P4...perform P^n * [1, 0, 0] letting this vector = k-th diagonal of the triangle.
+%e A122881 For the right border, odd indexed Fibonacci numbers (1, 2, 5, 13, 34...), we begin with (M2) = [1, 1; 1, 0], then P2 = [1, -1; -1, 2] = 1/(M2)^2. Performing (P2)^n * [1,0] we extract the left vector (1, 2, 5, 13...), making it the right border of the triangle, k1 diagonal.
+%e A122881 For the next diagonal going to the left, we begin with the Heptagonal matrix M3 = [1, 1, 1; 1, 1, 0; 1, 0, 0], take the inverse square (P3) and then perform the analogous operation getting 1, 2, 5, 14, 42...
+%e A122881 First few rows of the triangle are:
+%e A122881 1;
+%e A122881 1, 2;
+%e A122881 1, 2, 5;
+%e A122881 1, 2, 5, 13;
+%e A122881 1, 2, 5, 14, 34;
+%e A122881 1, 2, 5, 14, 42, 89;
+%e A122881 1, 2, 5, 14, 42, 131, 233;
+%e A122881 1, 2, 5, 14, 42, 132, 417, 610;
+%e A122881 ...
+%Y A122881 Cf. A112880, A001519, A000108, A080937, A080938.
+%K A122881 nonn,tabl
+%O A122881 1,3
+%A A122881 Gary W. Adamson (qntmpkt(AT)yahoo.com), Sep 16 2006
+
+%I A132833
+%S A132833 1,2,5,14,42,126,377,1130,3390,10170,30509,91526,274577,823730,
+%T A132833 2471190,7413570,22240710,66722130,200166390,600499170,1801497510,
+%U A132833 5404492530,16213477590,48640432770,145921298310,437763894930,1313291684789
+%N A132833 Largest terms a(n) forming a self-convolution of an integer sequence (A132834) such that: a(n) <= 3*a(n-1) for n>0 with a(0)=1.
+%o A132833 (PARI) {a(n)=local(B=[1]);if(n==0,1,for(k=1,n,t=3*a(k-1);B=concat(B,t); B[ #B]=t+1-denominator(Vec(Ser(B)^(1/2))[ #B]) ));B[n+1]}
+%Y A132833 Cf. A132834 (square-root); A132831 (variant).
+%K A132833 nonn
+%O A132833 0,2
+%A A132833 Paul D. Hanna (pauldhanna(AT)juno.com), Sep 07 2007
+
+%I A162746
+%S A162746 1,2,5,14,42,132,427,1402,4629,15290,50412,165816,544253,1783602,
+%T A162746 5839313,19106766,62504002,204457540,668825279,2188016442,7158417217,
+%U A162746 23421034442,76632061852,250740203864,820430583305,2684486330562
+%N A162746 Row sums of Fibonacci-Pascal matrix A162745.
+%C A162746 Second binomial transform of aerated Fibonacci numbers. Hankel transform is 1,1,1,-1,0,0,0,\ldots.
+%F A162746 G.f.: (1-2x)^3/(1-8x+23x^2-28x^3+11x^4);
+%F A162746 a(n)=sum{k=0..floor(n/2), C(n,2k)*2^(n-2k)*F(k+1)}=sum{k=0..n, C(n,k)*2^(n-k)*F(k/2+1)*(1+(-1)^k)/2}.
+%K A162746 easy,nonn
+%O A162746 0,2
+%A A162746 Paul Barry (pbarry(AT)wit.ie), Jul 12 2009
+
+%I A162748
+%S A162748 1,2,5,14,42,132,430,1444,4984,17648,64024,237712,902416,3499680,
+%T A162748 13853424,55931168,230142848,964460288,4113656704,17846729984,
+%U A162748 78708574976,352678567424,1604739694848,7411167960576,34723660917760
+%N A162748 Row sums of factorial-Pascal matrix A162747.
+%C A162748 Second binomial transform of aerated factorial numbers. Binomial transform of A084261. Hankel transform is A137704.
+%F A162748 G.f.: 1/(1-2x-x^2/(1-2x-x^2/(1-2x-2x^2/(1-2x-2x^2/(1-2x-3x^2/(1-2x-3x^2/(1-2x-4x^2/(1-2x-... (continued fraction);
+%F A162748 a(n)=sum{k=0..floor(n/2), C(n,2k)*2^(n-2k)*F(k+1)}=sum{k=0..n, C(n,k)*2^(n-k)*(k/2)!*(1+(-1)^k)/2}.
+%F A162748 a(n)=sum{k=0..n, A161556(n,k)*2^k}. [From Paul Barry (pbarry(AT)wit.ie), Apr 11 2010]
+%e A162748 E.g.f.: exp(2x)*(1+(sqrt(pi)/2)*x*exp(x^2/4)*erf(x/2)). [From Paul Barry (pbarry(AT)wit.ie), Sep 17 2010]
+%K A162748 easy,nonn
+%O A162748 0,2
+%A A162748 Paul Barry (pbarry(AT)wit.ie), Jul 12 2009
+
+%I A000751
+%S A000751 1,2,5,14,42,143,555,2485,12649,72463,461207,3229622,24671899,
+%T A000751 204185616,1819837153,17378165240,177012514388,1915724368181,
+%U A000751 21952583954117,265533531724484,3380877926676504,45199008472762756
+%N A000751 Boustrophedon transform of partition numbers.
+%H A000751 J. Millar, N. J. A. Sloane and N. E. Young, A new operation on sequences: the Boustrophedon on transform, J. Combin. Theory, 17A 44-54 1996 (<a href="http://www.research.att.com/~njas/doc/bous.txt">Abstract</a>, <a href="http://www.research.att.com/~njas/doc/bous.pdf">pdf</a>, <a href="http://www.research.att.com/~njas/doc/bous.ps">ps</a>).
+%H A000751 N. J. A. Sloane, <a href="/transforms.txt">Transforms</a>
+%H A000751 <a href="/index/Bo#boustrophedon">Index entries for sequences related to boustrophedon transform</a>
+%K A000751 nonn
+%O A000751 0,2
+%A A000751 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A006930
+%S A006930 1,2,5,14,42,131,420,1376,4589,15537,53293,184881,647752,2289215,
+%T A006930 8152147,29226618,105408688,382193502,1392377762,5094356032,
+%U A006930 18711122069,68965586862,255006331944,945662753514
+%N A006930 Binomial transform of rooted tree numbers.
+%H A006930 <a href="/index/Ro#rooted">Index entries for sequences related to rooted trees</a>
+%H A006930 N. J. A. Sloane, <a href="/transforms.txt">Transforms</a>
+%Y A006930 Cf. A000081.
+%K A006930 nonn
+%O A006930 0,2
+%A A006930 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A036767
+%S A036767 1,1,2,5,14,42,131,421,1385,4642,15795,54418,189454,665471,2355510,
+%T A036767 8393461,30084695,108394449,392356788,1426137550,5203211200,
+%U A036767 19048447855,69951072700,257609070810,951172531880,3520465229446,13058843476526
+%N A036767 Number of rooted trees with a degree constraint.
+%C A036767 Empirical: number of Dyck n-paths avoiding UUUUUU (or DDDDDD).  e.g. of the 132 Dyck 6-paths U^6D^6 contains UUUUUU so a(6)=131. [From David Scambler, Mar 24 2011]
+%D A036767 L. Takacs, Enumeration of rooted trees and forests, Math. Scientist 18 (1993), 1-10, esp. Eq. (6).
+%H A036767 <a href="/index/Ro#rooted">Index entries for sequences related to rooted trees</a>
+%H A036767 Vladimir Kruchinin, <a href="http://arxiv.org/abs/1103.2582"> Compositae and their properties </a>, arXiv:1103.2582
+%F A036767 G.f. A(x) satisfies A(x)=1+sum(n=1..5, (x*A(x))^n) [From Vladimir Kruchinin, Feb 22 2011].
+%p A036767 r := 5; [ seq((1/n)*add( (-1)^j*binomial(n,j)*binomial(2*n-2-j*(r+1), n-1),j=0..floor((n-1)/(r+1))), n=1..30) ]; end;
+%o A036767 (PARI) a(n)=if(n<0,0,polcoeff(serreverse(x/sum(k=0,5,x^k)+O(x^(n+2))),n+1)) (from R. Stephan)
+%K A036767 nonn
+%O A036767 0,3
+%A A036767 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A036768
+%S A036768 1,1,2,5,14,42,132,428,1421,4807,16510,57421,201824,715768,2558167,
+%T A036768 9204651,33315919,121218195,443107245,1626546453,5993256280,
+%U A036768 22158739970,82182744284,305670888560,1139892935454,4261095044346,15964169665031
+%N A036768 Number of rooted trees with a degree constraint.
+%D A036768 L. Takacs, Enumeration of rooted trees and forests, Math. Scientist 18 (1993), 1-10, esp. Eq. (6).
+%H A036768 <a href="/index/Ro#rooted">Index entries for sequences related to rooted trees</a>
+%H A036768 Vladimir Kruchinin, <a href="http://arxiv.org/abs/1103.2582"> Compositae and their properties </a>, arXiv:1103.2582
+%F A036768 G.f. A(x) satisfies A(x)=1+sum(n=1..6, (x*A(x))^n) [From Vladimir Kruchinin, Feb 22 2011].
+%p A036768 r := 6; [ seq((1/n)*add( (-1)^j*binomial(n,j)*binomial(2*n-2-j*(r+1), n-1),j=0..floor((n-1)/(r+1))), n=1..30) ]; end;
+%o A036768 (PARI) a(n)=if(n<0,0,polcoeff(serreverse(x/polcyclo(7)+O(x^(n+2))),n+1)) (from R. Stephan)
+%K A036768 nonn
+%O A036768 0,3
+%A A036768 N. J. A. Sloane (njas(AT)research.att.com).
+
+%I A047046
+%S A047046 1,2,5,14,42,146,513,1814,6457,23852,88822,331756,1241569,4704536,
+%T A047046 17919729,68426280,261659138,1005583928,3876858984,14975423376,
+%U A047046 57918225459,224542599510,872234912198,3393031324338,13212674724177
+%N A047046 T(n,n+1), array T as in A047040; T(n+1,n), array T given by A047050.
+%K A047046 nonn
+%O A047046 0,2
+%A A047046 Clark Kimberling (ck6(AT)evansville.edu)
+
+%I A052853
+%S A052853 0,1,2,5,14,42,138,466,1643,5919,21773,81279,307483,1175352,4534161,
+%T A052853 17626999,68992703,271641249,1075144364,4275274867,17071822275
+%N A052853 A simple grammar.
+%H A052853 INRIA Algorithms Project, <a href="http://algo.inria.fr/bin/encyclopedia?Search=ECSnb&amp;argsearch=821">Encyclopedia of Combinatorial Structures 821</a>
+%p A052853 spec := [S,{C=Prod(Z,B),S=Cycle(C),B=Set(S)},unlabeled]: seq(combstruct[count](spec,size=n), n=0..20);
+%K A052853 easy,nonn
+%O A052853 0,3
+%A A052853 encyclopedia(AT)pommard.inria.fr, Jan 25 2000
+
+%I A061058
+%S A061058 1,2,5,14,42,165,714,3094,14858,79534,447051,2714690,17395070
+%N A061058 Duplicate of A060795.
+%K A061058 dead
+%O A061058 1,2
+
+%I A092493
+%S A092493 1,2,5,14,42,128,389,1179,3572,10825,32810,99446,301412,913547,
+%T A092493 2768863,8392136,25435699,77092976,233660832,708201794,2146486339,
+%U A092493 6505777953,19718339694,59764246943,181139247400,549014312524,1664005563066
+%N A092493 a(n)=4a(n-1)-4a(n-2)+3a(n-3)+a(n-4)-a(n-5).
+%C A092493 Arises in enumeration of certain pattern-avoiding permutations.
+%D A092493 Z. Stankova and J. West, Explicit enumeration of 321, hexagon-avoiding permutations, Discrete Math., 280 (2004), 165-189.
+%F A092493 G.f.: x*(1-2*x+x^2-x^3-x^4)/(1-4*x+4*x^2-3*x^3-x^4+x^5) [From Maksym Voznyy (voznyy(AT)mail.ru), Aug 12 2009]
+%p A092493 a[1]:=1: a[2]:=2: a[3]:=5: a[4]:=14: a[5]:=42: for n from 6 to 32 do a[n]:=4*a[n-1]-4*a[n-2]+3*a[n-3]+a[n-4]-a[n-5] od: seq(a[j],j=1..32); (Deutsch)
+%Y A092493 Cf. A058094, A092489-A092492.
+%K A092493 nonn,easy
+%O A092493 1,2
+%A A092493 N. J. A. Sloane (njas(AT)research.att.com), Apr 04 2004
+%E A092493 G.f. proposed by Maksym Voznyy checked and corrected by R. J. Mathar, Sep 16 2009.
+%E A092493 Edited by Emeric Deutsch (deutsch(AT)duke.poly.edu), Apr 12 2005
+
+%I A125501
+%S A125501 1,2,5,14,42,132,430,1444,4981,17594,63442,232828,867145,3269034,
+%T A125501 12446307,47767466,184508963,716386598,2793067210,10926148172,
+%U A125501 42857189054,168471757292,663434825367,2616336659586,10329939578230
+%N A125501 The (1,1)-entry in the matrix M^n, where M is the 7 X 7 Cartan matrix [2,-1,0,0,0,0,0; -1,2,-1,0,0,0,0; 0,-1,2,-1,0,0,-1; 0,0,-1,2,-1,0,0; 0,0,0,-1,2,-1,0; 0,0,0,0,-1,2,0; 0,0,-1,0,0,0,2].
+%D A125501 Wikipedia (E_7, Mathematics).
+%e A125501 a(6) = 430 = leftmost term in M^6 * [1,0,0,0,0,0,0].
+%p A125501 with(linalg): M[1]:=matrix(7,7,[2,-1,0,0,0,0,0,-1,2,-1,0,0,0,0,0,-1,2,-1,0,0,-1,0,0,-1,2,-1,0,0,0,0,0,-1,2,-1,0,0,0,0,0,-1,2,0,0,0,-1,0,0,0,2]): for n from 2 to 30 do M[n]:=multiply(M[1],M[n-1]) od:1, seq(M[n][1,1],n=1..30); - Emeric Deutsch (deutsch(AT)duke.poly.edu), Jan 20 2007
+%o A125501 (PARI) {a(n)=local(E7=[2,-1,0,0,0,0,0; -1,2,-1,0,0,0,0; 0,-1,2,-1,0,0,-1; 0,0,-1,2,-1,0,0; 0,0,0,-1,2,-1,0; 0,0,0,0,-1,2,0; 0,0,-1,0,0,0,2]); (E7^n)[1,1]} - Paul D. Hanna (pauldhanna(AT)juno.com), Jan 02 2007
+%Y A125501 Cf. A126566, A126567, A126569.
+%K A125501 nonn
+%O A125501 0,2
+%A A125501 Gary W. Adamson (qntmpkt(AT)yahoo.com), Dec 28 2006
+%E A125501 More terms from Paul D. Hanna (pauldhanna(AT)juno.com), Jan 02 2007
+
+%I A129086
+%S A129086 1,2,5,14,42,133,443,1552,5716,22068,88830,370209,1585841,6936459,
+%T A129086 30813483,138445492,627256282,2859652414,13099023380,60225071992,
+%U A129086 277729496928,1283986487874,5948991719082,27616185153765
+%N A129086 Coefficients of solution to A(x)= (1 +x*A(x)^2)* (1-3*x)/ (1-2*x)^2.
+%F A129086 Hankel transform of a(n) is A006720(n+3).
+%F A129086 G.f. A(x) satisfies 0= f(x, A(x)) where f(u, v)= (v-1) +(3 -4*v -v^2)*u +(4*v +3*v^2)* u^2.
+%F A129086 Let s(n)= A006769(n). Then 0= f( s(n+4)* s(n+6)/( s(n)* s(n+10)), -s(n)* s(n+7)/( s(n+3)* s(n+4)) ) where f(u, v)= (v-1) +(3 -4*v -v^2)*u +(4*v +3*v^2)* u^2.
+%F A129086 G.f.: ((1 -2*x)^2 -sqrt((1 -4*x)* (1 -8*x +16*x^2 -4*x^3) ))/(2*x* (1 -3*x)).
+%o A129086 (PARI) {a(n)= if(n<0, 0, polcoeff( ((1 -2*x)^2 -sqrt((1 -4*x)* (1 -8*x +16*x^2 -4*x^3) +x^2*O(x^n))) /(2*x* (1 -3*x)), n))}
+%o A129086 (PARI) {a(n)= local(A); if(n<0, 0, A= 1+O(x); for(k= 1, n, A= (1+x*A^2)* (1-3*x)/ (1-2*x)^2 ); polcoeff(A, n))}
+%K A129086 nonn
+%O A129086 0,2
+%A A129086 Michael Somos, Mar 29 2007
+
+%I A137940
+%S A137940 1,1,1,1,2,1,1,2,4,1,1,2,5,7,1,1,2,5,13,11,1,1,2,5,14,31,16,1,1,2,5,
+%T A137940 14,41,66,22,1,1,2,5,14,42,116,127,29,1,1,2,5,14,42,131,302,225,37,1,
+%U A137940 1,2,5,14,42,132,407,715,373,46,1,1,2,5,14,42,132
+%N A137940 Triangle read by rows, antidiagonals of an array formed by A000012 * A001263(transform).
+%C A137940 Rows of the array tend to the Catalan sequence, A000108 starting (1, 2, 5, 14, 42,...).
+%F A137940 Antidiagonals of an array formed by A000012 * A001263(transform), as infinite triangular matrices. A000012 = (1; 1,1; 1,1,1; 1,1,1,1;...), A001263 = the Narayana triangle.
+%e A137940 First few rows of the array are:
+%e A137940 1,...1,....1,....1,....1,...
+%e A137940 1,...2,....4,....7,...11,...
+%e A137940 1,...2,....5,...13,...31,...
+%e A137940 1,...2,....5,...14,...41,...
+%e A137940 1,...2,....5,...14,...42,...
+%e A137940 ...
+%e A137940 First few rows of the triangle are:
+%e A137940 1;
+%e A137940 1, 1;
+%e A137940 1, 2, 1;
+%e A137940 1, 2, 4, 1;
+%e A137940 1, 2, 5, 7, 1;
+%e A137940 1, 2, 5, 13, 11, 1;
+%e A137940 1, 2, 5, 14, 31, 16, 1;
+%e A137940 1, 2, 5, 14, 41, 66, 22, 1;
+%e A137940 1, 2, 5, 14, 42, 116, 127, 29, 1;
+%e A137940 1, 2, 5, 14, 42, 131, 302, 225, 37, 1;
+%e A137940 1, 2, 5, 14, 42, 132, 407, 715, 373, 46, 1;
+%e A137940 ...
+%Y A137940 Cf. A001263, A000108.
+%K A137940 nonn,tabl
+%O A137940 1,5
+%A A137940 Gary W. Adamson (qntmpkt(AT)yahoo.com), Feb 24 2008
+
+%I A148326
+%S A148326 1,1,2,5,14,42,127,406,1384,4674,16231,57908,207172,759480,2799649,
+%T A148326 10388278,39267427,148491557,566578382,2183452049,8421213079,
+%U A148326 32796434160,128237720641,502717621685,1986380784640,7859822136004,31232721688184,124731244842505,498653956893148,2003101284597936
+%N A148326 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, 0), (-1, 0, -1), (0, -1, 0), (0, 0, 1), (1, 1, -1)}
+%H A148326 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148326 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, 1 + k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[i, 1 + j, k, -1 + n] + aux[1 + i, j, 1 + k, -1 + n] + aux[1 + i, 1 + j, k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148326 nonn,walk
+%O A148326 0,3
+%A A148326 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A148327
+%S A148327 1,1,2,5,14,42,127,422,1435,4840,17338,62435,225190,837159,3126319,
+%T A148327 11765631,44783683,171773846,664157911,2575562439,10077583703,
+%U A148327 39670893129,156317183566,620651825974,2475390947605,9886472711813,39689896106424,159948432742012,645894452400153,2616112922938863
+%N A148327 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, 0), (-1, 0, -1), (0, 0, 1), (1, -1, 0), (1, 1, -1)}
+%H A148327 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148327 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, 1 + k, -1 + n] + aux[-1 + i, 1 + j, k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, j, 1 + k, -1 + n] + aux[1 + i, 1 + j, k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148327 nonn,walk
+%O A148327 0,3
+%A A148327 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A148328
+%S A148328 1,1,2,5,14,42,130,415,1365,4592,15727,54593,191610,679420,2430721,
+%T A148328 8763775,31807636,116106836,426029867,1570602958,5814799002,
+%U A148328 21610381589,80590043893,301484592756,1131111868525,4255026611884,16045919249512,60646837901675,229700320188818,871691280039250,3314013545656012
+%N A148328 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, 0, 0), (0, 0, 1), (1, -1, 0), (1, 1, -1)}
+%H A148328 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148328 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, 1 + k, -1 + n] + aux[-1 + i, 1 + j, k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, j, k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148328 nonn,walk
+%O A148328 0,3
+%A A148328 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A148329
+%S A148329 1,1,2,5,14,42,132,427,1461,5149,18208,66167,245809,916554,3472325,
+%T A148329 13336423,51381259,200314770,788549887,3109894305,12375535543,
+%U A148329 49619709706,199200086118,805276630442,3274867775817,13330519836543,54567851023957,224455435083738,923884816807443,3820535590726406
+%N A148329 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, 0), (-1, 0, 0), (0, 0, 1), (1, -1, -1), (1, 1, -1)}
+%H A148329 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148329 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, 1 + k, -1 + n] + aux[-1 + i, 1 + j, 1 + k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, j, k, -1 + n] + aux[1 + i, 1 + j, k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148329 nonn,walk
+%O A148329 0,3
+%A A148329 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A148330
+%S A148330 1,1,2,5,14,42,134,450,1561,5584,20384,76110,288678,1111867,4332969,
+%T A148330 17081566,68003151,273141366,1105621792,4507122693,18493763341,
+%U A148330 76333387299,316764690900,1320956750386,5533915084459,23281928699430,98335287674627,416846016334321,1773046351548880,7565766894106024
+%N A148330 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, 0), (-1, 0, 1), (0, 1, -1), (1, 0, 0), (1, 1, -1)}
+%H A148330 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148330 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, 1 + k, -1 + n] + aux[-1 + i, j, k, -1 + n] + aux[i, -1 + j, 1 + k, -1 + n] + aux[1 + i, j, -1 + k, -1 + n] + aux[1 + i, 1 + j, k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148330 nonn,walk
+%O A148330 0,3
+%A A148330 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A148331
+%S A148331 1,1,2,5,14,42,137,464,1626,5882,21677,81732,313304,1212616,4773498,
+%T A148331 18989434,75930374,307605618,1255603937,5139250646,21254360832,
+%U A148331 88416763064,368323147150,1547315926686,6531070849774,27584038509482,117317585175507,500936901965294,2139262376029736
+%N A148331 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, 0), (-1, 1, -1), (0, 0, 1), (1, -1, 0), (1, 1, -1)}
+%H A148331 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148331 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, 1 + k, -1 + n] + aux[-1 + i, 1 + j, k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, -1 + j, 1 + k, -1 + n] + aux[1 + i, 1 + j, k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148331 nonn,walk
+%O A148331 0,3
+%A A148331 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A148332
+%S A148332 1,1,2,5,14,42,140,481,1740,6517,25071,98909,398029,1630133,6776780,
+%T A148332 28545990,121634875,523592344,2274403486,9959936977,43935043231,
+%U A148332 195083730751,871408143675,3913633986985,17664173896079,80090608816509,364658344537497,1666732699542652,7645308725638059
+%N A148332 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, 0, 1), (-1, 1, 0), (0, 0, 1), (1, -1, 1), (1, 0, -1)}
+%H A148332 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A148332 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, j, 1 + k, -1 + n] + aux[-1 + i, 1 + j, -1 + k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, -1 + j, k, -1 + n] + aux[1 + i, j, -1 + k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A148332 nonn,walk
+%O A148332 0,3
+%A A148332 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A149876
+%S A149876 1,2,5,14,42,136,451,1546,5407,19191,69191,251867,925820,3430082,
+%T A149876 12789590,47974023,180826904,684611939,2601928569,9922514404,
+%U A149876 37956726661,145587887723,559808213755,2157340447787,8330424172574,32227003874198,124881479757620,484665714314689,1883659790434405
+%N A149876 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, 1), (0, 1, -1), (1, 0, 0), (1, 1, 0)}
+%H A149876 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A149876 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, -1 + j, k, -1 + n] + aux[-1 + i, j, k, -1 + n] + aux[i, -1 + j, 1 + k, -1 + n] + aux[1 + i, 1 + j, -1 + k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A149876 nonn,walk
+%O A149876 0,2
+%A A149876 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A149877
+%S A149877 1,2,5,14,42,140,480,1694,6160,22768,86119,329819,1276827,5009624,
+%T A149877 19807663,79034687,317771172,1284909978,5231953571,21409625876,
+%U A149877 88032238475,363768052841,1508700015910,6282877542186,26257507524764,110071406730840,462949380985458,1952358638292573,8255507414702459
+%N A149877 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, -1), (-1, 0, 0), (0, 0, 1), (0, 1, 0), (1, -1, 0)}
+%H A149877 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A149877 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, 1 + j, k, -1 + n] + aux[i, -1 + j, k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, j, k, -1 + n] + aux[1 + i, 1 + j, 1 + k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A149877 nonn,walk
+%O A149877 0,2
+%A A149877 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A149878
+%S A149878 1,2,5,14,42,140,480,1710,6227,23087,87495,335253,1304117,5120189,
+%T A149878 20286069,81087950,326175588,1321918434,5385669252,22062590893,
+%U A149878 90821095614,375419697147,1558667802107,6493810637583,27152832780694,113894033778109,479137002109941,2021504946377131,8550206541089202
+%N A149878 Number of walks within N^3 (the first octant of Z^3) starting at (0,0,0) and consisting of n steps taken from {(-1, -1, -1), (-1, 0, 1), (0, 0, 1), (0, 1, 0), (1, -1, 0)}
+%H A149878 A. Bostan and M. Kauers, 2008. Automatic Classification of Restricted Lattice Walks, <a href="http://arxiv.org/abs/0811.2899">ArXiv 0811.2899</a>.
+%t A149878 aux[i_Integer, j_Integer, k_Integer, n_Integer] := Which[Min[i, j, k, n] < 0 || Max[i, j, k] > n, 0, n == 0, KroneckerDelta[i, j, k, n], True, aux[i, j, k, n] = aux[-1 + i, 1 + j, k, -1 + n] + aux[i, -1 + j, k, -1 + n] + aux[i, j, -1 + k, -1 + n] + aux[1 + i, j, -1 + k, -1 + n] + aux[1 + i, 1 + j, 1 + k, -1 + n]]; Table[Sum[aux[i, j, k, n], {i, 0, n}, {j, 0, n}, {k, 0, n}], {n, 0, 10}]
+%K A149878 nonn,walk
+%O A149878 0,2
+%A A149878 Manuel Kauers (manuel(AT)kauers.de), Nov 18 2008
+
+%I A152226
+%S A152226 1,2,5,14,42,132,428,1416,4745,16034,54505,186166,638538
+%N A152226 Binomial transform of A027862
+%F A152226 A007318 * A027862 as a vector. A027862 = [1, 1, 2, 4, 9, 21, 50, 120, 290,...].
+%e A152226 a(3) = 14 = (1, 1, 2, 4) dot (1, 3, 3, 1) = (1 + 3 + 6 + 4).
+%Y A152226 A027862
+%K A152226 nonn
+%O A152226 0,2
+%A A152226 Gary W. Adamson (qntmpkt(AT)yahoo.com), Nov 29 2008
+
+%I A165146
+%S A165146 1,1,2,5,14,42,136,459,1594,5645,20280,73659
+%N A165146 Number of polynomials P(x,y) of degree n with coefficients only 0 or 1 and such that P(x,1-x) = 1
+%C A165146 The polynomials are of the form P = (x+y-1) * Q + 1.
+%H A165146 <a href="http://faculty.missouristate.edu/l/lesreid/POW03_0506.html">Problem #3</a>, Missouri State Math Dept. Challenge Archive, 2005/06 discusses the generalization to m variables.
+%e A165146 For degree 0, the only solution is 1, hence a(0) = 1. For degree 1, the only solution is x + y, hence a(1) = 1. For degree 2 there are x^2 + x*y + y and x + x*y + y^2 (and no more), hence a(2) = 2.
+%K A165146 more,nonn
+%O A165146 0,3
+%A A165146 Hagen von Eitzen (math(AT)von-eitzen.de), Sep 05 2009
+
+%I A196417
+%S A196417 1,2,5,14,42,131,417,1341,4334,14042,45562,148029,481804,1572625,
+%T A196417 5156025,17018505,56717910,191540940,658084182,2309516616
+%N A196417 Erroneous version of A080937.
+%D A196417 Aleksandar Ilic and Andreja Ilic, On the number of restricted Dyck paths, Filomat 25:3 (2011), 191-201; DOI: 10.2298/FIL1103191I, http://operator.pmf.ni.ac.rs/www/pmf/publikacije/filomat/2011/F25-3-2011/F25-3-17.pdf
+%K A196417 dead
+%O A196417 1,2
+
+%I A115140
+%S A115140 1,1,1,2,5,14,42,132,429,1430,4862,16796,58786,208012,
+%T A115140 742900,2674440,9694845,35357670,129644790,477638700,
+%U A115140 1767263190,6564120420,24466267020,91482563640,343059613650,1289904147324,4861946401452,18367353072152
+%V A115140 1,-1,-1,-2,-5,-14,-42,-132,-429,-1430,-4862,-16796,-58786,-208012,
+%W A115140 -742900,-2674440,-9694845,-35357670,-129644790,-477638700,
+%X A115140 -1767263190,-6564120420,-24466267020,-91482563640,-343059613650,-1289904147324,-4861946401452,-18367353072152
+%N A115140 O.g.f. inverse of Catalan A000108 o.g.f.
+%F A115140 See A034807 and A115149 for comments.
+%F A115140 For convolutions of this sequence see A115141-A115149.
+%F A115140 O.g.f. 1/c(x) = 1-x*c(x) with the o.g.f. c(x):=(1-sqrt(1-4*x))/(2*x) of A000108 (Catalan numbers).
+%F A115140 a(0)=1, a(n)=-C(n-1), n>=1, with C(n):=A000108(n) (Catalan).
+%K A115140 sign,easy
+%O A115140 0,4
+%A A115140 Wolfdieter Lang (wolfdieter.lang_AT_physik_DOT_uni-karlsruhe_DOT_de), Jan 13 2006
+
+%I A168491
+%S A168491 1,1,2,5,14,42,132,429,1430,4862,16796,58786,208012,742900,
+%T A168491 2674440,9694845,35357670,129644790,477638700,1767263190,
+%U A168491 6564120420,24466267020,91482563640,343059613650,1289904147324
+%V A168491 1,-1,2,-5,14,-42,132,-429,1430,-4862,16796,-58786,208012,-742900,
+%W A168491 2674440,-9694845,35357670,-129644790,477638700,-1767263190,
+%X A168491 6564120420,-24466267020,91482563640,-343059613650,1289904147324
+%N A168491 (-1)^n*Catalan(n)
+%C A168491 Second inverse binomial transform of A001405. Hankel transform of this sequence gives A000012 = [1,1,1,1,1,1,1,...].
+%C A168491 Also the expansion of real root of y+y^2=x. (* RGWv *)
+%F A168491 a(n)=(-1)^n*A000108(n). G.f.: (sqrt(1+4x)-1)/2x.
+%t A168491  CoefficientList[ InverseSeries[ Series[y + y^2 + y^3, {y, 0, 28}], x], x] (* RGWv *)
+%K A168491 sign
+%O A168491 0,3
+%A A168491 Philippe DELEHAM (kolotoko(AT)wanadoo.fr), Nov 27 2009
+
+%I A115141
+%S A115141 1,2,1,2,5,14,42,132,429,1430,4862,16796,58786,208012,
+%T A115141 742900,2674440,9694845,35357670,129644790,477638700,
+%U A115141 1767263190,6564120420,24466267020,91482563640,343059613650,1289904147324,4861946401452,18367353072152
+%V A115141 1,-2,-1,-2,-5,-14,-42,-132,-429,-1430,-4862,-16796,-58786,-208012,
+%W A115141 -742900,-2674440,-9694845,-35357670,-129644790,-477638700,
+%X A115141 -1767263190,-6564120420,-24466267020,-91482563640,-343059613650,-1289904147324,-4861946401452,-18367353072152
+%N A115141 Convolution of A115140 with itself.
+%C A115141 This is the so-called A-sequence for the Riordan triangle A158454, as well as for A129818. For the notion of Z- and A-sequences for Riordan arrays see the W. Lang link under A006232 with details and references. W. Lang, Dec 20 1010.
+%C A115141 a(n)*(-1)^n is the A-sequence for the Riordan triangle A111125. - From Wolfdieter Lang, Jun 26 2011.
+%F A115141 O.g.f.: 1/c(x)^2 = (1-x) - x*c(x) with the o.g.f. c(x):=(1-sqrt(1-4*x))/(2*x) of A000108 (Catalan numbers).
+%F A115141 a(0)=1, a(1)=-2, a(n)=-C(n-1), n>=2, with C(n):=A000108(n) (Catalan). The start [1, -2] is row n=2 of signed A034807 (signed Lucas polynomials). See A115149 and A034807 for comments.
+%t A115141 a[n_] := -First[ ListConvolve[ cc = Array[ CatalanNumber, n-1, 0], cc]]; a[0] = 1; a[1] = -2; Table[a[n], {n, 0, 27}] (* From Jean-François Alcover, Oct 21 2011 *)
+%K A115141 sign,easy
+%O A115141 0,2
+%A A115141 Wolfdieter Lang (wolfdieter.lang_AT_physik_DOT_uni-karlsruhe_DOT_de), Jan 13 2006
+
+# Content is available under The OEIS End-User License Agreement: http://oeis.org/LICENSE
+
